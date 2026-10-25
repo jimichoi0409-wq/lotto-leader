@@ -507,3 +507,10 @@ python collect_draws.py --import eurojackpot 받은파일.csv   # 열: draw_date
 - 고친 점 1: 배너 광고가 없을 때(광고 로드 실패·동의 안 함) 하단 메뉴가 폰 시스템 버튼 뒤로 가려지던 문제 → 배너 자리에 시스템 버튼 높이만큼 여백.
 - 고친 점 2: 팝업(당첨번호·알림·설정·언어·통계·기록·도움말)을 닫으면 입력칸에 다시 커서가 잡혀 키보드가 올라오던 문제 → 팝업 열기 전에 입력칸 포커스 해제.
 - 폰에는 다시 일반(광고 있는) 빌드를 설치함.
+
+## Impeller 켜기 · Play 기능 그래픽 (2026-10-25)
+
+- `AndroidManifest.xml`의 Impeller 끄기 설정을 지움 → 실기기에서 "Using the Impeller rendering backend (Vulkan)" 확인,
+  메인·조합 팝업·복권 선택·필터 목록·배너 광고 화면 깨짐 없음, 오류 로그 없음.
+- Play 기능 그래픽(1024×500) 7개 언어: `5_store_assets/feature_graphic/feature_<언어>.png`.
+  문구는 스토어 등록 문구의 iOS 부제를 그대로 씀. 글꼴은 Windows에 설치된 Noto Sans(OFL, 상업 이용 가능).

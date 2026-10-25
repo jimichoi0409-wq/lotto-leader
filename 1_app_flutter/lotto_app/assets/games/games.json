@@ -557,7 +557,7 @@
       ],
       "timezone": "Europe/Dublin",
       "ruleSince": "2015-09-05",
-      "drawTime": "20:00",
+      "drawTime": "19:45",
       "prizeTiers": [
         [
           6,
@@ -586,6 +586,10 @@
         [
           3,
           0
+        ],
+        [
+          2,
+          1
         ]
       ]
     },

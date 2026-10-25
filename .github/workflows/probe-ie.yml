@@ -15,20 +15,14 @@ jobs:
       - name: Check lottery.ie pages
         run: |
           UA="LottoLeader-DataCollector/1.0 (+mailto:jnhteamsoft@gmail.com)"
-          curl -sS -A "$UA" -o home.html "https://www.lottery.ie/"
-          curl -sS -A "$UA" -o hist.html "https://www.lottery.ie/results/lotto/history"
-          echo "---- 약관·이용 조건 관련 링크 ----"
-          grep -oiE 'href="[^"]*(terms|condition|legal|copyright|privacy|rules)[^"]*"' home.html hist.html | sort -u | head -30
-          echo "---- 결과 페이지에 나오는 날짜·회차 표기 (앞부분) ----"
+          curl -sS -A "$UA" -o terms.html "https://www.lottery.ie/legal/terms-and-conditions"
           python3 - <<'EOF'
           import re, html
-          t = open("hist.html", encoding="utf-8", errors="replace").read()
-          text = html.unescape(re.sub(r"<[^>]+>", " ", t))
-          text = re.sub(r"\s+", " ", text)
-          dates = re.findall(r"(?:Mon|Tue|Wed|Thu|Fri|Sat|Sun)[a-z]*,? \d{1,2}(?:st|nd|rd|th)? [A-Z][a-z]+ \d{4}", text)
-          print("날짜 표기 수:", len(dates), dates[:3], dates[-3:])
-          print("본문 일부:", text[:1500])
-          for k in ("drawDate", "winningNumbers", "\"numbers\"", "bonus", "standardNumbers"):
-              i = t.find(k)
-              print(k, i, t[max(0, i - 150):i + 250].replace("\n", " ") if i >= 0 else "")
+          t = open("terms.html", encoding="utf-8", errors="replace").read()
+          text = re.sub(r"\s+", " ", html.unescape(re.sub(r"<[^>]+>", " ", t)))
+          print("약관 길이:", len(text))
+          for k in ("copyright", "intellectual property", "reproduc", "commercial", "results", "automated", "scrap", "crawl"):
+              for m in list(re.finditer(k, text, re.I))[:3]:
+                  print(f"[{k}]", text[max(0, m.start() - 250):m.start() + 350])
+                  print()
           EOF

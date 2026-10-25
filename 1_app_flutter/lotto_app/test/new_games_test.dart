@@ -50,7 +50,10 @@ void main() {
       const WeeklySlot(1, 15, 45),
       const WeeklySlot(4, 15, 45),
     ]);
-    expect(alarmSlots(ie).map((s) => s.hour), [17, 17]);
+    expect(alarmSlots(ie), [
+      const WeeklySlot(3, 16, 45),
+      const WeeklySlot(6, 16, 45),
+    ]);
     expect(alarmSlots(vn).map((s) => s.weekday), [3, 5, 7]);
   });
 
@@ -65,13 +68,15 @@ void main() {
     expect(rank([1, 2, 40, 41, 42, 43]), 0);
   });
 
-  test('아이리시 로또 등수 (4+보너스, 3+보너스 포함 7단계)', () {
+  test('아이리시 로또 등수 (4+보너스, 3+보너스, 2+보너스 포함 8단계)', () {
     const d = DrawRecord(1, '2026-10-21', [1, 2, 3, 4, 5, 6], [7]);
     int rank(List<int> n) => checkTicket(ie, Ticket(n, const []), d).rank;
     expect(rank([1, 2, 3, 4, 7, 47]), 4);
     expect(rank([1, 2, 3, 4, 46, 47]), 5);
     expect(rank([1, 2, 3, 7, 46, 47]), 6);
     expect(rank([1, 2, 3, 45, 46, 47]), 7);
+    expect(rank([1, 2, 7, 45, 46, 47]), 8);
+    expect(rank([1, 2, 44, 45, 46, 47]), 0);
   });
 
   test('베트남 메가 6/45: 보너스 번호 없음', () {

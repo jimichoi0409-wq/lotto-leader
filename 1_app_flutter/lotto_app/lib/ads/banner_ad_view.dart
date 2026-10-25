@@ -1,4 +1,4 @@
-// 화면 맨 아래 고정 배너 (적응형). 광고를 쓸 수 없거나 아직 불러오지 못했으면 공간을 차지하지 않습니다.
+// 화면 맨 아래 고정 배너 (적응형). 광고를 쓸 수 없거나 아직 불러오지 못했으면 시스템 내비게이션 바 높이만 차지합니다.
 
 import 'package:flutter/material.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
@@ -84,7 +84,12 @@ class _BannerAdViewState extends State<BannerAdView> {
   @override
   Widget build(BuildContext context) {
     final ad = _ad;
-    if (!_loaded || ad == null) return const SizedBox.shrink();
+    // 광고가 없어도 시스템 내비게이션 바 높이만큼은 비워 둡니다.
+    // (Scaffold 는 bottomNavigationBar 가 있으면 본문의 하단 여백을 빼 버리므로,
+    //  여기서 채우지 않으면 하단 메뉴가 시스템 버튼 뒤로 가려집니다)
+    if (!_loaded || ad == null) {
+      return const SafeArea(top: false, child: SizedBox.shrink());
+    }
     final size = _shownSize ?? ad.size;
     return SafeArea(
       top: false,

@@ -389,7 +389,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
 
   /// 필터·입력값·결과를 처음 상태로 되돌립니다 (복권을 바꿀 때도 사용).
   void _resetFilterInputs() {
-    FocusScope.of(context).unfocus();
+    FocusManager.instance.primaryFocus?.unfocus();
     _debounce?.cancel();
     _activeQueryId++;
 
@@ -447,6 +447,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
   }
 
   void _showWinningNumberDialog() {
+    FocusManager.instance.primaryFocus?.unfocus();
     if (!_isDbReady) {
       _showSnack(t.dbLoading);
       return;
@@ -751,6 +752,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
   }
 
   Future<void> _showAlarmDialog() async {
+    FocusManager.instance.primaryFocus?.unfocus();
     final enabled = await DrawAlarm.enabledGames();
     if (!mounted) return;
     final busy = <String>{};
@@ -899,6 +901,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
   }
 
   void _showSettingsDialog() {
+    FocusManager.instance.primaryFocus?.unfocus();
     showGeneralDialog(
       context: context,
       barrierDismissible: true,
@@ -989,6 +992,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
       : (languageNames[locale.languageCode] ?? locale.languageCode);
 
   void _showLanguagePicker() {
+    FocusManager.instance.primaryFocus?.unfocus();
     final current = LottoApp.localeOverride(context)?.languageCode;
     showDialog(
       context: context,
@@ -1090,6 +1094,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
   );
 
   void _openStats() {
+    FocusManager.instance.primaryFocus?.unfocus();
     final game = _activeGame;
     Navigator.of(context).push(
       MaterialPageRoute(
@@ -1116,6 +1121,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
   }
 
   void _openHistory() {
+    FocusManager.instance.primaryFocus?.unfocus();
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (_) => HistoryPage(
@@ -2966,7 +2972,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
   }
 
   Future<void> _executeSearch() async {
-    FocusScope.of(context).unfocus();
+    FocusManager.instance.primaryFocus?.unfocus();
 
     if (!_isDbReady) {
       _showSnack(t.dbLoading);
@@ -3310,6 +3316,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
   }
 
   void _showHelpDialog(String title, [String? help]) {
+    FocusManager.instance.primaryFocus?.unfocus();
     final content = help ?? t.noHelp;
 
     showDialog(
@@ -3379,7 +3386,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
       bottomNavigationBar: const BannerAdView(),
       body: GestureDetector(
         behavior: HitTestBehavior.translucent,
-        onTap: () => FocusScope.of(context).unfocus(),
+        onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
         child: SafeArea(
           child: Stack(
             children: [
@@ -3553,7 +3560,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
             ),
             ElevatedButton(
               onPressed: () {
-                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
                 _calculateFrequencies();
               },
               style: ElevatedButton.styleFrom(
@@ -3629,7 +3636,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
             ),
             ElevatedButton(
               onPressed: () {
-                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
                 _onFilterChanged();
               },
               style: ElevatedButton.styleFrom(
@@ -3740,7 +3747,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
             ),
             ElevatedButton(
               onPressed: () {
-                FocusScope.of(context).unfocus();
+                FocusManager.instance.primaryFocus?.unfocus();
                 _onFilterChanged();
               },
               style: ElevatedButton.styleFrom(
@@ -3894,7 +3901,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
   }
 
   void _showGamePicker() {
-    FocusScope.of(context).unfocus();
+    FocusManager.instance.primaryFocus?.unfocus();
     final fmt = NumberFormat.decimalPattern(
       Localizations.localeOf(context).toString(),
     );
@@ -4392,7 +4399,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
     bool isBonus = false,
     required bool isInclude,
   }) async {
-    FocusScope.of(context).unfocus();
+    FocusManager.instance.primaryFocus?.unfocus();
 
     final String kind = isBonus ? _bonusLabel : t.numbersWord;
     final String title = isInclude

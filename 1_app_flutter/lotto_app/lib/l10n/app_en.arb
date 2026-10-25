@@ -1,0 +1,853 @@
+{
+  "@@locale": "en",
+  "appTitle": "Lotto Leader",
+  "close": "Close",
+  "apply": "Apply",
+  "lookup": "View",
+  "calculating": "Calculating…",
+  "extracting": "Generating…",
+  "extractButton": "Generate",
+  "countHint": "Qty",
+  "remainingCombos": "Remaining combinations",
+  "menuResults": "Results",
+  "menuReset": "Reset",
+  "menuAlarm": "Alerts",
+  "menuSettings": "Settings",
+  "privacyPolicy": "Privacy policy",
+  "disclaimer": "Disclaimer",
+  "contact": "Contact",
+  "versionLabel": "Version",
+  "currentVersion": "Current app version {version}",
+  "@currentVersion": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "language": "Language",
+  "languageSystem": "Use device language",
+  "drawAlarm": "{game} draw-day reminder",
+  "@drawAlarm": {
+    "placeholders": {
+      "game": {
+        "type": "String"
+      }
+    }
+  },
+  "resetDone": "Reset to default settings.",
+  "privacyText": "This app is free. On first launch you create a simple profile with just a nickname. Your nickname and generation history are stored only on this device, are never sent to the operator, and can be deleted at any time in Settings → Delete account.\n\nThe app itself does not collect personally identifying information such as your name, phone number or email address.\n\nThe app uses Google AdMob to show ads. In that process, the advertising ID, device information and app usage information may be collected by Google. Where consent is required (e.g. in the EEA and UK), you are asked on first launch and can change your choice at any time in Settings → Ad privacy settings.\n\nThis information may be used to deliver ads, improve app quality and prevent abuse.",
+  "disclaimerText": "This app is a tool that offers statistics on past winning numbers and helps you build number combinations.\n\nIn every lottery, each combination has exactly the same chance of winning the jackpot (e.g. 1 in 8,145,060 for Korea's Lotto 6/45 and 1 in 292,201,338 for Powerball). The filters and statistics in this app do not improve your odds. Please use them for fun and reference only.\n\nThis is an independent app and is not affiliated with any lottery operator (including Dong-hang Lottery, Powerball, Mega Millions, Lotto 6/49, EuroMillions, Eurojackpot, Loto 6, Irish Lotto or Vietlott).\n\nThe app does not guarantee any winnings. You are solely responsible for buying and playing lottery tickets.\n\nThe app does not sell tickets and offers no betting, cash rewards or gambling services.",
+  "contactText": "If you have questions, find a bug or have a suggestion, please email us.\n\nOperator: 한지성\nEmail: jnhteamsoft@gmail.com\n\nWe usually reply within 3 business days.",
+  "chooseLottery": "Choose lottery",
+  "gameRule": "{count} numbers (1–{max})",
+  "@gameRule": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "gameRuleBonus": " + {count} {label} (1–{max})",
+  "@gameRuleBonus": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "count": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "jackpotOdds": "Jackpot odds 1 in {odds}",
+  "@jackpotOdds": {
+    "placeholders": {
+      "odds": {
+        "type": "String"
+      }
+    }
+  },
+  "drawCount": "{count} past draws",
+  "@drawCount": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "drawsPending": "Results coming soon",
+  "drawRoundPrefix": "Draw #",
+  "drawRoundSuffix": "",
+  "drawResultPrefix": "",
+  "drawResultSuffix": " results",
+  "drawDate": "Drawn on {date}",
+  "@drawDate": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "noDrawDate": "Draw date unknown",
+  "noResultsStored": "No past results yet.\n(Results for this lottery are coming soon.)",
+  "dbLoading": "Loading past results. Please try again in a moment.",
+  "dbLoadingShort": "Loading past results…",
+  "dbLoadFailed": "Could not load past results.",
+  "freqPrefix": "Last [",
+  "freqSuffix": "] draws: most | least drawn",
+  "freqHint": "all",
+  "mostDrawn": "Most drawn",
+  "leastDrawn": "Least drawn",
+  "noDrawData": "No past results for this lottery yet.",
+  "recentTooLarge": "That's more draws than are stored, so all draws are used.",
+  "freqError": "Could not calculate frequencies.",
+  "includeExcludeHeader": "Include (max {maxInc}) | Exclude (max 18)",
+  "@includeExcludeHeader": {
+    "placeholders": {
+      "maxInc": {
+        "type": "String"
+      }
+    }
+  },
+  "includeRow": "Include",
+  "excludeRow": "Exclude",
+  "includeBonusRow": "Include",
+  "excludeBonusRow": "Exclude",
+  "bonusHeader": "{label} (1–{max}, include up to {inc} · exclude up to {exc})",
+  "@bonusHeader": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      },
+      "inc": {
+        "type": "String"
+      },
+      "exc": {
+        "type": "String"
+      }
+    }
+  },
+  "numbersWord": "numbers",
+  "pickerInclude": "Include {kind}",
+  "@pickerInclude": {
+    "placeholders": {
+      "kind": {
+        "type": "String"
+      }
+    }
+  },
+  "pickerExclude": "Exclude {kind}",
+  "@pickerExclude": {
+    "placeholders": {
+      "kind": {
+        "type": "String"
+      }
+    }
+  },
+  "pickerConflict": "{number} is already in the other list.",
+  "@pickerConflict": {
+    "placeholders": {
+      "number": {
+        "type": "String"
+      }
+    }
+  },
+  "pickerMax": "You can select up to {max}.",
+  "@pickerMax": {
+    "placeholders": {
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "includeLabel": "Included numbers",
+  "excludeLabel": "Excluded numbers",
+  "includeBonusLabel": "Included {label}",
+  "@includeBonusLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "excludeBonusLabel": "Excluded {label}",
+  "@excludeBonusLabel": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "notNumber": "{label}: \"{raw}\" is not a number.",
+  "@notNumber": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "raw": {
+        "type": "String"
+      }
+    }
+  },
+  "outOfRange": "{label} must be between 1 and {max}.",
+  "@outOfRange": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "dupInclude": "Included numbers contain duplicates.",
+  "dupExclude": "Excluded numbers contain duplicates.",
+  "conflict": "These numbers are both included and excluded: {numbers}",
+  "@conflict": {
+    "placeholders": {
+      "numbers": {
+        "type": "String"
+      }
+    }
+  },
+  "calcError": "Calculation failed. Please check your filters.",
+  "busy": "Still calculating. Please wait!",
+  "noResults": "No combinations left. Please change your settings.",
+  "tooMany": "Only {count} combinations remain, so {count} will be generated.",
+  "@tooMany": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "noExtract": "No combinations available. Please change your settings.",
+  "extractError": "Could not generate numbers. Please check your settings.",
+  "resultsTitle": "Your combinations",
+  "copied": "Numbers copied.",
+  "copyButton": "Copy",
+  "shareButton": "Share",
+  "shareHeader": "🍀My {game} numbers🍀",
+  "@shareHeader": {
+    "placeholders": {
+      "game": {
+        "type": "String"
+      }
+    }
+  },
+  "shareSubject": "My lottery numbers",
+  "noHelp": "No description available.",
+  "obWelcome": "Welcome to Lotto Leader",
+  "obChooseLanguage": "Choose your language. You can change it later in Settings.",
+  "obNext": "Next",
+  "obBack": "Back",
+  "obProfileTitle": "Quick sign-up",
+  "obProfileBody": "Just pick a nickname to get started.\nYour profile and history are stored only on this device.",
+  "obNickname": "Nickname",
+  "obNicknameHint": "2–12 characters",
+  "obNicknameError": "Please enter a nickname of 2–12 characters.",
+  "obAge": "I am of legal age to play the lottery in my country",
+  "obAgree": "I agree to the Privacy Policy and Disclaimer",
+  "obView": "View",
+  "obStart": "Get started",
+  "obNeedChecks": "Please confirm all required items.",
+  "menuHistory": "My history",
+  "historyJoined": "Joined {date}",
+  "@historyJoined": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "historyStats": "{count, plural, one{{count} generation} other{{count} generations}}",
+  "@historyStats": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "historyEmpty": "No history yet.\nCombinations you generate will appear here.",
+  "historyTickets": "{count, plural, one{{count} combination} other{{count} combinations}}",
+  "@historyTickets": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "historyFilters": "{count, plural, one{{count} filter} other{{count} filters}}",
+  "@historyFilters": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "historyClearAll": "Clear all history",
+  "historyClearConfirm": "Delete all generation history?",
+  "historyDeleted": "Entry deleted.",
+  "delete": "Delete",
+  "cancel": "Cancel",
+  "confirm": "OK",
+  "profileNickname": "Nickname: {name}",
+  "@profileNickname": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "withdraw": "Delete account (profile & history)",
+  "withdrawConfirm": "Your profile and history will be deleted from this device and you'll return to the start screen. Continue?",
+  "manualEntry": "Enter results manually",
+  "manualHelp": "Use this when automatic updates aren't working, based on the official results. Official data for the same date will replace your entry later.",
+  "manualRound": "Draw no.",
+  "manualDate": "Draw date",
+  "manualMain": "{count} winning numbers",
+  "@manualMain": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "manualBonus": "{label}: {count}",
+  "@manualBonus": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "manualSave": "Save",
+  "manualSaved": "Results saved.",
+  "manualList": "Your entries",
+  "manualNone": "No manual entries.",
+  "manualTag": "Manual",
+  "mErrRound": "Please check the draw number.",
+  "mErrMain": "Please select {count} winning numbers.",
+  "@mErrMain": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "mErrBonus": "{label}: please select {count}.",
+  "@mErrBonus": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      },
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "mErrBonusOverlap": "The bonus number can't be one of the winning numbers.",
+  "mErrDate": "Please check the date. Future dates, non-draw days and dates before the current rules aren't allowed.",
+  "mErrExists": "Results for this date (draw) already exist.",
+  "adPrivacyOptions": "Ad privacy settings",
+  "rewardTitle": "Generate {count} combinations",
+  "@rewardTitle": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "rewardBody": "Up to {free} combinations are free.\nWatch a short ad to generate all {count}.",
+  "@rewardBody": {
+    "placeholders": {
+      "free": {
+        "type": "String"
+      },
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "rewardWatch": "Watch ad for {count}",
+  "@rewardWatch": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "rewardFreeOnly": "Just {free}",
+  "@rewardFreeOnly": {
+    "placeholders": {
+      "free": {
+        "type": "String"
+      }
+    }
+  },
+  "rewardNotEarned": "The ad wasn't finished, so {free} combinations will be generated.",
+  "@rewardNotEarned": {
+    "placeholders": {
+      "free": {
+        "type": "String"
+      }
+    }
+  },
+  "patternFilters": "Pattern filters",
+  "pastPending": " (results coming soon)",
+  "fKr1st": "Exclude past jackpot combinations",
+  "hKr1st": "Excludes combinations identical to any past jackpot result.",
+  "fKr23": "Exclude 5-number matches with past draws",
+  "hKr23": "Excludes combinations sharing 5 of the 6 numbers of any past draw.",
+  "fKr4th": "Exclude 4-number matches (last 100 draws)",
+  "hKr4th": "Excludes combinations sharing 4 numbers with any of the last 100 draws.",
+  "fKr5th": "Exclude consecutive triples seen in past draws",
+  "hKr5th": "Excludes combinations containing a run of 3 consecutive numbers that appeared in a past draw.",
+  "fKrRange": "Exclude narrow spreads (max − min ≤ 9)",
+  "hKrRange": "Excludes combinations whose highest and lowest numbers are 9 or less apart.",
+  "fPastFull": "Exclude past winning sets ({k} matches)",
+  "@fPastFull": {
+    "placeholders": {
+      "k": {
+        "type": "String"
+      }
+    }
+  },
+  "hPastFull": "Excludes combinations identical to the {k} main numbers of any draw under the current rules.",
+  "@hPastFull": {
+    "placeholders": {
+      "k": {
+        "type": "String"
+      }
+    }
+  },
+  "fPastMinus1": "Exclude {m}-number matches with past draws",
+  "@fPastMinus1": {
+    "placeholders": {
+      "m": {
+        "type": "String"
+      }
+    }
+  },
+  "hPastMinus1": "Excludes combinations sharing {m} of the {k} main numbers of any past draw.",
+  "@hPastMinus1": {
+    "placeholders": {
+      "k": {
+        "type": "String"
+      },
+      "m": {
+        "type": "String"
+      }
+    }
+  },
+  "fPastMinus2": "Exclude {m}-number matches (last {r} draws)",
+  "@fPastMinus2": {
+    "placeholders": {
+      "r": {
+        "type": "String"
+      },
+      "m": {
+        "type": "String"
+      }
+    }
+  },
+  "hPastMinus2": "Excludes combinations sharing {m} main numbers with any of the last {r} draws.",
+  "@hPastMinus2": {
+    "placeholders": {
+      "r": {
+        "type": "String"
+      },
+      "m": {
+        "type": "String"
+      }
+    }
+  },
+  "fPastConsec": "Exclude consecutive triples seen in past draws",
+  "hPastConsec": "Excludes combinations containing a run of 3 consecutive numbers (e.g. 7, 8, 9) that appeared in a past draw.",
+  "fNarrow": "Exclude narrow spreads (max − min ≤ {n})",
+  "@fNarrow": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "hNarrow": "Excludes combinations whose highest and lowest numbers are {n} or less apart.",
+  "@hNarrow": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "f3Consec": "Exclude 3 consecutive numbers",
+  "h3Consec": "Excludes combinations with 3 consecutive numbers, such as 1, 2, 3 or 33, 34, 35.",
+  "fSkip1": "Exclude 3 numbers in steps of 2",
+  "hSkip1": "Excludes combinations with 3 numbers spaced by 2, such as 1, 3, 5 or 15, 17, 19.",
+  "fSkip2": "Exclude 3 numbers in steps of 3",
+  "hSkip2": "Excludes combinations with 3 numbers spaced by 3, such as 1, 4, 7 or 15, 18, 21.",
+  "fSkip3": "Exclude 3 numbers in steps of 4",
+  "hSkip3": "Excludes combinations with 3 numbers spaced by 4, such as 1, 5, 9 or 15, 19, 23.",
+  "f2Pairs": "Exclude 2+ consecutive pairs",
+  "h2Pairs": "Excludes combinations with two or more consecutive pairs, such as 1, 2 and 15, 16.",
+  "fAllOdd": "Exclude all odd ({k} odd numbers)",
+  "@fAllOdd": {
+    "placeholders": {
+      "k": {
+        "type": "String"
+      }
+    }
+  },
+  "hAllOdd": "Excludes combinations where all {k} numbers are odd.",
+  "@hAllOdd": {
+    "placeholders": {
+      "k": {
+        "type": "String"
+      }
+    }
+  },
+  "fAllEven": "Exclude all even ({k} even numbers)",
+  "@fAllEven": {
+    "placeholders": {
+      "k": {
+        "type": "String"
+      }
+    }
+  },
+  "hAllEven": "Excludes combinations where all {k} numbers are even.",
+  "@hAllEven": {
+    "placeholders": {
+      "k": {
+        "type": "String"
+      }
+    }
+  },
+  "fOE1": "Exclude O-E-O-E-O-E / E-O-E-O-E-O",
+  "fOE2": "Exclude E-E-O-O-E-E / O-O-E-E-O-O",
+  "fOE3": "Exclude E-E-E-E-E-O / O-O-O-O-O-E",
+  "fOE4": "Exclude E-E-E-E-O-O / O-O-O-O-E-E",
+  "fOE5": "Exclude E-E-E-O-O-O / O-O-O-E-E-E",
+  "hOE": "Excludes combinations whose 6 sorted numbers follow the odd(O)/even(E) order {pattern}.",
+  "@hOE": {
+    "placeholders": {
+      "pattern": {
+        "type": "String"
+      }
+    }
+  },
+  "fSameDigit": "Exclude 3+ numbers with the same last digit",
+  "hSameDigit": "Excludes combinations with 3 or more numbers ending in the same digit, such as 1, 11, 21, 31.",
+  "fTripleMult": "Exclude 3 consecutive multiples",
+  "hTripleMult": "Excludes combinations containing 3 consecutive multiples of the same number, such as 2, 4, 6 or 4, 8, 12.",
+  "alarmIntro": "You'll get a phone notification 3 hours before each draw of the lotteries you turn on.",
+  "alarmDrawAt": "Draws {days} {time} (local time)",
+  "@alarmDrawAt": {
+    "placeholders": {
+      "days": {
+        "type": "String"
+      },
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "alarmUnsupported": "Notifications aren't supported on this device. Please use the phone app.",
+  "alarmDenied": "Notifications are turned off. Please allow notifications for this app in your phone settings.",
+  "alarmOn": "We'll remind you 3 hours before each {game} draw.",
+  "@alarmOn": {
+    "placeholders": {
+      "game": {
+        "type": "String"
+      }
+    }
+  },
+  "alarmOff": "{game} reminders turned off.",
+  "@alarmOff": {
+    "placeholders": {
+      "game": {
+        "type": "String"
+      }
+    }
+  },
+  "notifyTitle": "{game} draw today!",
+  "@notifyTitle": {
+    "placeholders": {
+      "game": {
+        "type": "String"
+      }
+    }
+  },
+  "notifyBody": "The draw is in 3 hours. Generate your numbers in Lotto Leader.",
+  "notifyChannel": "Draw reminders",
+  "winPending": "Awaiting draw",
+  "winDrawOf": "Compared with the {date} draw",
+  "@winDrawOf": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "winRank": "Tier {rank}",
+  "@winRank": {
+    "placeholders": {
+      "rank": {
+        "type": "String"
+      }
+    }
+  },
+  "winBest": "Best: {rank}",
+  "@winBest": {
+    "placeholders": {
+      "rank": {
+        "type": "String"
+      }
+    }
+  },
+  "winNone": "No win",
+  "winMatch": "{main} matched",
+  "@winMatch": {
+    "placeholders": {
+      "main": {
+        "type": "String"
+      }
+    }
+  },
+  "winMatchPlus": "{main}+{bonus} matched",
+  "@winMatchPlus": {
+    "placeholders": {
+      "main": {
+        "type": "String"
+      },
+      "bonus": {
+        "type": "String"
+      }
+    }
+  },
+  "winMatchBonus": "{main} + bonus matched",
+  "@winMatchBonus": {
+    "placeholders": {
+      "main": {
+        "type": "String"
+      }
+    }
+  },
+  "winPendingHint": "Results are compared automatically once the draw is in. If it's late, use Settings → Enter results manually.",
+  "statsTitle": "Number stats",
+  "statsRecent": "Last {n}",
+  "@statsRecent": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "statsAll": "All",
+  "statsMain": "Main numbers",
+  "statsSortNumber": "By number",
+  "statsSortMost": "Most drawn",
+  "statsSortLeast": "Least drawn",
+  "statsSortGap": "Longest absent",
+  "statsAnalyzed": "{n, plural, one{Based on the last draw} other{Based on the last {n} draws}}",
+  "@statsAnalyzed": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "statsHot": "Hot numbers",
+  "statsCold": "Cold numbers",
+  "statsCount": "{n}×",
+  "@statsCount": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      }
+    }
+  },
+  "statsGap": "{n, plural, one{{n} draw ago} other{{n} draws ago}}",
+  "@statsGap": {
+    "placeholders": {
+      "n": {
+        "type": "int"
+      }
+    }
+  },
+  "statsGapLatest": "Last draw",
+  "statsGapNever": "Not drawn",
+  "statsOddEven": "Odd / even split",
+  "statsOddLabel": "{odd} odd : {even} even",
+  "@statsOddLabel": {
+    "placeholders": {
+      "odd": {
+        "type": "String"
+      },
+      "even": {
+        "type": "String"
+      }
+    }
+  },
+  "statsDisclaimer": "These are past results only and don't predict future draws.",
+  "backupExport": "Back up history",
+  "backupImport": "Restore from backup",
+  "backupShareText": "Lotto Leader backup file. On your new phone, open Settings → Restore from backup and choose this file.",
+  "backupEmpty": "There's nothing to back up yet.",
+  "backupFailed": "Couldn't create the backup file. Please try again later.",
+  "backupImportConfirm": "The backup will be merged with the history on this device. Your nickname and sign-up date will be taken from the backup. Continue?",
+  "backupImportDone": "Restore complete. Added: history {history} · manual results {manual}",
+  "@backupImportDone": {
+    "placeholders": {
+      "history": {
+        "type": "String"
+      },
+      "manual": {
+        "type": "String"
+      }
+    }
+  },
+  "backupInvalid": "This isn't a Lotto Leader backup file, or the file is damaged.",
+  "backupTooLarge": "The file is too large. Please choose a Lotto Leader backup file.",
+  "continueButton": "Continue",
+  "colon": ": ",
+  "fSum": "Exclude sums outside {lo}–{hi}",
+  "@fSum": {
+    "placeholders": {
+      "lo": {
+        "type": "String"
+      },
+      "hi": {
+        "type": "String"
+      }
+    }
+  },
+  "hSum": "Excludes combinations whose main numbers add up to less than {lo} or more than {hi}. About 95% of all combinations fall within this range.",
+  "@hSum": {
+    "placeholders": {
+      "lo": {
+        "type": "String"
+      },
+      "hi": {
+        "type": "String"
+      }
+    }
+  },
+  "fBirthday": "Exclude all-31-or-lower sets (birthday numbers)",
+  "hBirthday": "Excludes combinations made only of 1–31 (numbers used in dates). Many people pick birthdays, so a jackpot on these numbers is more likely to be shared. The chance of winning is the same as any other combination.",
+  "fLowHigh": "Exclude all-low or all-high sets",
+  "hLowHigh": "Excludes combinations whose numbers are all within 1–{half}, or all within {next}–{max}.",
+  "@hLowHigh": {
+    "placeholders": {
+      "half": {
+        "type": "String"
+      },
+      "next": {
+        "type": "String"
+      },
+      "max": {
+        "type": "String"
+      }
+    }
+  },
+  "fDecade4": "Exclude 4+ numbers in the same decade",
+  "hDecade4": "Excludes combinations with 4 or more numbers in the same group of ten (1–9, 10–19, 20–29 …), such as 41, 43, 45, 48.",
+  "fRepeatLast": "Exclude 2+ numbers from the last draw",
+  "hRepeatLast": "Excludes combinations that repeat 2 or more main numbers from the most recent draw.",
+  "fBonusRecent": "Exclude {label} from the last {n} draws",
+  "@fBonusRecent": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "hBonusRecent": "{label} numbers drawn in the last {n} draws won't be picked.",
+  "@hBonusRecent": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "fBonusPairRecent": "Exclude {label} pairs from the last {n} draws",
+  "@fBonusPairRecent": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "hBonusPairRecent": "A {label} pair identical to one of the last {n} draws won't be picked.",
+  "@hBonusPairRecent": {
+    "placeholders": {
+      "n": {
+        "type": "String"
+      },
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "fBonusConsec": "Exclude consecutive {label} (e.g. 3·4)",
+  "@fBonusConsec": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "hBonusConsec": "{label} pairs of consecutive numbers, such as 3·4, won't be picked.",
+  "@hBonusConsec": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "fBonusParity": "Exclude {label} both odd or both even",
+  "@fBonusParity": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "hBonusParity": "{label} pairs that are both odd or both even won't be picked.",
+  "@hBonusParity": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  },
+  "filtersOverseas": "Extra filters for this lottery",
+  "filtersBonus": "{label} filters",
+  "@filtersBonus": {
+    "placeholders": {
+      "label": {
+        "type": "String"
+      }
+    }
+  }
+}

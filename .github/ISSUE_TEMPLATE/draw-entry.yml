@@ -1,0 +1,65 @@
+# 관리자 당첨번호 입력 양식
+# 휴대폰 브라우저·GitHub 앱에서: 저장소 → Issues → New issue → "당첨번호 입력 (관리자)"
+# 제출하면 .github/workflows/admin-draw-entry.yml 이 검사 → 저장 → 앱 배포까지 자동으로 하고, 결과를 댓글로 남깁니다.
+# 저장소 소유자·협업자가 쓴 것만 처리합니다 (다른 사람이 쓴 이슈는 무시).
+name: 당첨번호 입력 (관리자)
+description: 자동 갱신이 안 된 회차를 추가하거나, 잘못 올라간 회차를 정정합니다.
+title: "[당첨번호] "
+labels: ["draw-entry"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        공식 발표를 보고 입력하세요. 번호는 **공백으로 구분** (예: `3 11 20 27 38 41`). 순서는 상관없습니다.
+        회차 번호는 날짜 순서로 자동으로 매겨지므로 입력하지 않습니다.
+  - type: dropdown
+    id: game
+    attributes:
+      label: 복권
+      options:
+        - "kr645 · 로또 6/45 (한국) — 6개 + 보너스 1개"
+        - "powerball · 파워볼 (미국) — 5개 + 파워볼 1개"
+        - "megamillions · 메가밀리언 (미국) — 5개 + 메가볼 1개"
+        - "ca649 · 로또 6/49 (캐나다) — 6개 + 보너스 1개"
+        - "euromillions · 유로밀리언 — 5개 + 럭키스타 2개"
+        - "eurojackpot · 유로잭팟 — 5개 + 유로번호 2개"
+        - "jp_loto6 · 로토6 (일본) — 6개 + 보너스 1개"
+        - "ie_lotto · 아이리시 로또 (아일랜드) — 6개 + 보너스 1개"
+        - "vn_mega645 · 메가 6/45 (베트남) — 6개, 보너스 없음"
+    validations:
+      required: true
+  - type: dropdown
+    id: action
+    attributes:
+      label: 작업
+      options:
+        - "추가 (새 회차)"
+        - "정정 (이미 올라간 회차의 번호 고치기)"
+    validations:
+      required: true
+  - type: input
+    id: date
+    attributes:
+      label: 추첨일
+      description: "YYYY-MM-DD, 복권 현지 날짜 기준"
+      placeholder: "2026-10-17"
+    validations:
+      required: true
+  - type: input
+    id: main
+    attributes:
+      label: 당첨번호
+      placeholder: "3 11 20 27 38 41"
+    validations:
+      required: true
+  - type: input
+    id: bonus
+    attributes:
+      label: 보너스·보조 번호
+      description: "파워볼·메가볼·럭키스타 등. 보너스가 없는 복권(베트남 메가 6/45)은 비워 두세요."
+      placeholder: "7"
+  - type: textarea
+    id: memo
+    attributes:
+      label: 메모 (선택)
+      description: "출처 링크 등. 처리에는 쓰지 않습니다."

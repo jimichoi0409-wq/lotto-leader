@@ -1,0 +1,76 @@
+# 당첨번호 자동 수집 → 검증 → docs/draws 배포 (GitHub Pages)
+#
+# 준비 (저장소를 만든 뒤 한 번):
+#   1. 이 폴더(LottoLeader_Mobile)를 GitHub 저장소로 올립니다.
+#   2. Settings → Pages → "Deploy from a branch" → main / docs
+#   3. Settings → Actions → General → Workflow permissions → "Read and write permissions"
+#   4. 앱의 lib/data/sync_config.dart 에 https://<계정>.github.io/<저장소>/draws/ 를 넣습니다.
+#
+# 수집 출처 중 하나라도 실패하면 이 작업이 '실패'로 표시되어 GitHub 가 메일로 알려 줍니다.
+# 실패한 출처는 기존 데이터를 그대로 두고, 성공한 출처만 반영됩니다.
+
+name: Update lottery draws
+
+on:
+  schedule:
+    - cron: "30 13 * * 6"   # 토 22:30 KST (한국 로또 추첨 20:35 이후)
+    - cron: "0 6 * * *"     # 매일 06:00 UTC (미국·유럽 전날 밤 추첨 이후)
+  workflow_dispatch:         # Actions 탭에서 수동 실행
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-draws
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Collect and validate draws
+        id: collect
+        run: |
+          set +e
+          python -X utf8 3_db_scripts/collect_draws.py
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Commit changes
+        run: |
+          git config user.name "draws-bot"
+          git config user.email "draws-bot@users.noreply.github.com"
+          git add 2_data docs/draws 1_app_flutter/lotto_app/assets
+          if git diff --cached --quiet; then
+            echo "새 당첨번호 없음"
+          else
+            git commit -m "Update lottery draws ($(date -u +%Y-%m-%d))"
+            git push
+          fi
+
+      # 추첨 후 18시간이 지났는데 새 회차가 없으면 실패 → GitHub 가 관리자에게 메일
+      # (출처는 정상인데 예전 데이터만 주는 경우도 잡힘). 메일을 받으면 Issues → "당첨번호 입력"으로 넣으세요.
+      - name: Check for missing draws
+        id: stale
+        run: |
+          set +e
+          python -X utf8 3_db_scripts/check_stale.py
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Report source failures
+        if: steps.collect.outputs.status != '0'
+        run: |
+          echo "::error::일부 수집 출처가 실패했습니다. 위 'Collect and validate draws' 로그를 확인하세요."
+          exit 1
+
+      - name: Report missing draws
+        if: steps.stale.outputs.status != '0'
+        run: |
+          echo "::error::새 회차가 늦어지고 있습니다. 위 'Check for missing draws' 로그를 보고 관리자 입력 양식으로 넣어 주세요."
+          exit 1

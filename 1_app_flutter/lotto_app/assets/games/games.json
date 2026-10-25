@@ -1,0 +1,642 @@
+{
+  "version": 1,
+  "games": [
+    {
+      "id": "kr645",
+      "name": {
+        "ko": "로또 6/45",
+        "en": "Lotto 6/45 (Korea)",
+        "es": "Lotto 6/45 (Corea)",
+        "fr": "Loto 6/45 (Corée)",
+        "de": "Lotto 6/45 (Korea)",
+        "ja": "ロト6/45 (韓国)",
+        "vi": "Lotto 6/45 (Hàn Quốc)"
+      },
+      "country": "KR",
+      "main": {
+        "count": 6,
+        "max": 45
+      },
+      "bonus": {
+        "count": 1,
+        "max": 45,
+        "playerPicks": false,
+        "label": {
+          "ko": "보너스",
+          "en": "Bonus",
+          "es": "Bonus",
+          "fr": "Bonus",
+          "de": "Zusatzzahl",
+          "ja": "ボーナス",
+          "vi": "Số phụ"
+        }
+      },
+      "drawDays": [
+        "SAT"
+      ],
+      "timezone": "Asia/Seoul",
+      "ruleSince": "2002-12-07",
+      "drawTime": "20:35",
+      "prizeTiers": [
+        [
+          6,
+          -1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          4,
+          -1
+        ],
+        [
+          3,
+          -1
+        ]
+      ]
+    },
+    {
+      "id": "powerball",
+      "name": {
+        "ko": "파워볼 (미국)",
+        "en": "Powerball (US)",
+        "es": "Powerball (EE. UU.)",
+        "fr": "Powerball (États-Unis)",
+        "de": "Powerball (USA)",
+        "ja": "パワーボール (米国)",
+        "vi": "Powerball (Mỹ)"
+      },
+      "country": "US",
+      "main": {
+        "count": 5,
+        "max": 69
+      },
+      "bonus": {
+        "count": 1,
+        "max": 26,
+        "playerPicks": true,
+        "label": {
+          "ko": "파워볼",
+          "en": "Powerball",
+          "es": "Powerball",
+          "fr": "Powerball",
+          "de": "Powerball",
+          "ja": "パワーボール",
+          "vi": "Powerball"
+        }
+      },
+      "drawDays": [
+        "MON",
+        "WED",
+        "SAT"
+      ],
+      "timezone": "America/New_York",
+      "ruleSince": "2015-10-07",
+      "drawTime": "22:59",
+      "prizeTiers": [
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "megamillions",
+      "name": {
+        "ko": "메가밀리언 (미국)",
+        "en": "Mega Millions (US)",
+        "es": "Mega Millions (EE. UU.)",
+        "fr": "Mega Millions (États-Unis)",
+        "de": "Mega Millions (USA)",
+        "ja": "メガミリオンズ (米国)",
+        "vi": "Mega Millions (Mỹ)"
+      },
+      "country": "US",
+      "main": {
+        "count": 5,
+        "max": 70
+      },
+      "bonus": {
+        "count": 1,
+        "max": 24,
+        "playerPicks": true,
+        "label": {
+          "ko": "메가볼",
+          "en": "Mega Ball",
+          "es": "Mega Ball",
+          "fr": "Mega Ball",
+          "de": "Mega Ball",
+          "ja": "メガボール",
+          "vi": "Mega Ball"
+        }
+      },
+      "drawDays": [
+        "TUE",
+        "FRI"
+      ],
+      "timezone": "America/New_York",
+      "ruleSince": "2025-04-08",
+      "drawTime": "23:00",
+      "prizeTiers": [
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "ca649",
+      "name": {
+        "ko": "로또 6/49 (캐나다)",
+        "en": "Lotto 6/49 (Canada)",
+        "es": "Lotto 6/49 (Canadá)",
+        "fr": "Lotto 6/49 (Canada)",
+        "de": "Lotto 6/49 (Kanada)",
+        "ja": "ロト6/49 (カナダ)",
+        "vi": "Lotto 6/49 (Canada)"
+      },
+      "country": "CA",
+      "main": {
+        "count": 6,
+        "max": 49
+      },
+      "bonus": {
+        "count": 1,
+        "max": 49,
+        "playerPicks": false,
+        "label": {
+          "ko": "보너스",
+          "en": "Bonus",
+          "es": "Complementario",
+          "fr": "Complémentaire",
+          "de": "Zusatzzahl",
+          "ja": "ボーナス",
+          "vi": "Số phụ"
+        }
+      },
+      "drawDays": [
+        "WED",
+        "SAT"
+      ],
+      "timezone": "America/Toronto",
+      "ruleSince": null,
+      "drawTime": "22:30",
+      "prizeTiers": [
+        [
+          6,
+          -1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          4,
+          -1
+        ],
+        [
+          3,
+          -1
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "euromillions",
+      "name": {
+        "ko": "유로밀리언",
+        "en": "EuroMillions",
+        "es": "EuroMillones",
+        "fr": "EuroMillions",
+        "de": "EuroMillions",
+        "ja": "ユーロミリオンズ",
+        "vi": "EuroMillions"
+      },
+      "country": "EU",
+      "main": {
+        "count": 5,
+        "max": 50
+      },
+      "bonus": {
+        "count": 2,
+        "max": 12,
+        "playerPicks": true,
+        "label": {
+          "ko": "럭키스타",
+          "en": "Lucky Stars",
+          "es": "Estrellas",
+          "fr": "Étoiles",
+          "de": "Sterne",
+          "ja": "ラッキースター",
+          "vi": "Lucky Star"
+        }
+      },
+      "drawDays": [
+        "TUE",
+        "FRI"
+      ],
+      "timezone": "Europe/Paris",
+      "ruleSince": "2016-09-27",
+      "drawTime": "21:00",
+      "prizeTiers": [
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "eurojackpot",
+      "name": {
+        "ko": "유로잭팟",
+        "en": "Eurojackpot",
+        "es": "Eurojackpot",
+        "fr": "Eurojackpot",
+        "de": "Eurojackpot",
+        "ja": "ユーロジャックポット",
+        "vi": "Eurojackpot"
+      },
+      "country": "EU",
+      "main": {
+        "count": 5,
+        "max": 50
+      },
+      "bonus": {
+        "count": 2,
+        "max": 12,
+        "playerPicks": true,
+        "label": {
+          "ko": "유로번호",
+          "en": "Euro numbers",
+          "es": "Euronúmeros",
+          "fr": "Euronuméros",
+          "de": "Eurozahlen",
+          "ja": "ユーロナンバー",
+          "vi": "Số Euro"
+        }
+      },
+      "drawDays": [
+        "TUE",
+        "FRI"
+      ],
+      "timezone": "Europe/Helsinki",
+      "ruleSince": "2022-03-25",
+      "drawTime": "21:00",
+      "prizeTiers": [
+        [
+          5,
+          2
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          4,
+          2
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          1
+        ]
+      ]
+    },
+    {
+      "id": "jp_loto6",
+      "name": {
+        "ko": "로토6 (일본)",
+        "en": "Loto 6 (Japan)",
+        "es": "Loto 6 (Japón)",
+        "fr": "Loto 6 (Japon)",
+        "de": "Loto 6 (Japan)",
+        "ja": "ロト6",
+        "vi": "Loto 6 (Nhật Bản)"
+      },
+      "country": "JP",
+      "main": {
+        "count": 6,
+        "max": 43
+      },
+      "bonus": {
+        "count": 1,
+        "max": 43,
+        "playerPicks": false,
+        "label": {
+          "ko": "보너스",
+          "en": "Bonus",
+          "es": "Bonus",
+          "fr": "Bonus",
+          "de": "Zusatzzahl",
+          "ja": "ボーナス",
+          "vi": "Số phụ"
+        }
+      },
+      "drawDays": [
+        "MON",
+        "THU"
+      ],
+      "timezone": "Asia/Tokyo",
+      "ruleSince": "2000-10-05",
+      "drawTime": "18:45",
+      "prizeTiers": [
+        [
+          6,
+          -1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          4,
+          -1
+        ],
+        [
+          3,
+          -1
+        ]
+      ]
+    },
+    {
+      "id": "ie_lotto",
+      "name": {
+        "ko": "아이리시 로또 (아일랜드)",
+        "en": "Irish Lotto",
+        "es": "Irish Lotto (Irlanda)",
+        "fr": "Irish Lotto (Irlande)",
+        "de": "Irish Lotto (Irland)",
+        "ja": "アイリッシュ・ロト",
+        "vi": "Irish Lotto (Ireland)"
+      },
+      "country": "IE",
+      "main": {
+        "count": 6,
+        "max": 47
+      },
+      "bonus": {
+        "count": 1,
+        "max": 47,
+        "playerPicks": false,
+        "label": {
+          "ko": "보너스",
+          "en": "Bonus",
+          "es": "Bonus",
+          "fr": "Bonus",
+          "de": "Zusatzzahl",
+          "ja": "ボーナス",
+          "vi": "Số phụ"
+        }
+      },
+      "drawDays": [
+        "WED",
+        "SAT"
+      ],
+      "timezone": "Europe/Dublin",
+      "ruleSince": "2015-09-05",
+      "drawTime": "20:00",
+      "prizeTiers": [
+        [
+          6,
+          -1
+        ],
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          0
+        ]
+      ]
+    },
+    {
+      "id": "vn_mega645",
+      "name": {
+        "ko": "메가 6/45 (베트남)",
+        "en": "Mega 6/45 (Vietnam)",
+        "es": "Mega 6/45 (Vietnam)",
+        "fr": "Mega 6/45 (Viêt Nam)",
+        "de": "Mega 6/45 (Vietnam)",
+        "ja": "メガ6/45 (ベトナム)",
+        "vi": "Mega 6/45"
+      },
+      "country": "VN",
+      "main": {
+        "count": 6,
+        "max": 45
+      },
+      "bonus": {
+        "count": 0,
+        "max": 45,
+        "playerPicks": false,
+        "label": {}
+      },
+      "drawDays": [
+        "WED",
+        "FRI",
+        "SUN"
+      ],
+      "timezone": "Asia/Ho_Chi_Minh",
+      "ruleSince": "2016-07-20",
+      "drawTime": "18:00",
+      "prizeTiers": [
+        [
+          6,
+          -1
+        ],
+        [
+          5,
+          -1
+        ],
+        [
+          4,
+          -1
+        ],
+        [
+          3,
+          -1
+        ]
+      ]
+    }
+  ]
+}

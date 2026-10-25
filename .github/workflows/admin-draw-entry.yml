@@ -1,0 +1,78 @@
+# 관리자 당첨번호 입력: 이슈 양식(.github/ISSUE_TEMPLATE/draw-entry.yml)으로 제출된 회차를
+# 검사 → 2_data·앱 내장 데이터 저장 → docs/draws 배포(GitHub Pages) → 결과를 이슈 댓글로 알림.
+#
+# 보안: 저장소 소유자(OWNER)·조직 구성원(MEMBER)·협업자(COLLABORATOR)가 쓴 이슈만 처리합니다.
+#       이슈 본문은 환경 변수로만 넘겨 명령어에 직접 끼워 넣지 않습니다.
+
+name: Admin draw entry
+
+on:
+  issues:
+    types: [opened, edited]
+
+permissions:
+  contents: write
+  issues: write
+
+# 자동 수집과 동시에 저장소에 쓰지 않도록 같은 그룹으로 줄 세움
+concurrency:
+  group: update-draws
+  cancel-in-progress: false
+
+jobs:
+  entry:
+    if: >-
+      contains(github.event.issue.labels.*.name, 'draw-entry') &&
+      contains(fromJSON('["OWNER","MEMBER","COLLABORATOR"]'), github.event.issue.author_association)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Validate and save
+        id: entry
+        env:
+          ISSUE_BODY: ${{ github.event.issue.body }}
+          RESULT_FILE: ${{ runner.temp }}/result.md
+        run: |
+          set +e
+          python -X utf8 3_db_scripts/admin_entry.py
+          echo "status=$?" >> "$GITHUB_OUTPUT"
+
+      - name: Commit and push
+        if: steps.entry.outputs.status == '0'
+        env:
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+        run: |
+          git config user.name "draws-bot"
+          git config user.email "draws-bot@users.noreply.github.com"
+          git add 2_data docs/draws 1_app_flutter/lotto_app/assets
+          if git diff --cached --quiet; then
+            echo "바뀐 파일 없음"
+          else
+            git commit -m "Admin draw entry (#${ISSUE_NUMBER})"
+            git pull --rebase
+            git push
+          fi
+
+      - name: Comment result
+        if: always()
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          OK: ${{ steps.entry.outputs.status == '0' }}
+          RESULT_FILE: ${{ runner.temp }}/result.md
+        run: |
+          [ -f "$RESULT_FILE" ] || echo "처리 중 오류가 났습니다. Actions 로그를 확인하세요." > "$RESULT_FILE"
+          gh issue comment "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY" --body-file "$RESULT_FILE"
+          if [ "$OK" = "true" ]; then
+            gh issue close "$ISSUE_NUMBER" --repo "$GITHUB_REPOSITORY"
+          fi
+
+      - name: Fail when rejected
+        if: steps.entry.outputs.status != '0'
+        run: exit 1

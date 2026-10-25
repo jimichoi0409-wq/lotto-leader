@@ -1,0 +1,23 @@
+# 빌드 결과물 (앱 폴더 안의 .gitignore 도 함께 적용됨)
+**/build/
+**/.dart_tool/
+__pycache__/
+*.pyc
+
+# 서명 키·비밀 정보는 절대 올리지 않음
+*.jks
+*.keystore
+**/key.properties
+.env
+
+# 개인 작업 파일
+4_backup/
+*.log
+
+# 공식 사이트 약관상 재배포 불가 - 로컬 대조용으로만 보관
+2_data/official_checks/ca649_wclc.csv
+
+# 기타
+local.properties
+*.apk
+*.aab

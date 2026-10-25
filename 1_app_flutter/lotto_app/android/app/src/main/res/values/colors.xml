@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- 앱 상단과 같은 브랜드 노란색 -->
+    <color name="splash_background">#FDE046</color>
+    <!-- 적응형 아이콘 배경 (전경 그림이 가득 차서 거의 보이지 않음) -->
+    <color name="ic_launcher_background">#22ABED</color>
+</resources>

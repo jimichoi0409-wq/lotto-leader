@@ -29,8 +29,13 @@ const String _testBannerIos = 'ca-app-pub-3940256099942544/2435281174';
 const String _testInterstitialIos = 'ca-app-pub-3940256099942544/4411468910';
 const String _testRewardedIos = 'ca-app-pub-3940256099942544/1712485313';
 
+/// 스토어 스크린샷 촬영용 빌드에서는 광고를 끕니다:
+///   flutter build apk --dart-define=SCREENSHOT_MODE=true
+const bool screenshotMode = bool.fromEnvironment('SCREENSHOT_MODE');
+
 /// 광고를 띄울 수 있는 플랫폼인지 (웹·데스크톱은 광고 없음)
-bool get adsSupported => !kIsWeb && (Platform.isAndroid || Platform.isIOS);
+bool get adsSupported =>
+    !screenshotMode && !kIsWeb && (Platform.isAndroid || Platform.isIOS);
 
 String _pick(String release, String test) =>
     kReleaseMode && release.isNotEmpty ? release : test;

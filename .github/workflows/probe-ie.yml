@@ -1,0 +1,27 @@
+# 시험용: GitHub 서버(미국)에서 아일랜드 공식 결과 페이지가 열리는지만 확인합니다 (저장·커밋 없음).
+# 확인이 끝나면 이 파일은 지워도 됩니다.
+name: Probe Irish Lotto source
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check lottery.ie pages
+        run: |
+          UA="LottoLeader-DataCollector/1.0 (+mailto:jnhteamsoft@gmail.com)"
+          for u in \
+            "https://www.lottery.ie/robots.txt" \
+            "https://www.lottery.ie/results/lotto/history" \
+            "https://www.lottery.ie/terms-and-conditions" ; do
+            code=$(curl -sS -A "$UA" -o page.html -w "%{http_code}" "$u" || echo ERR)
+            title=$(grep -o -m1 '<title>[^<]*' page.html | sed 's/<title>//')
+            echo "$code $(wc -c < page.html) bytes  $u  [$title]"
+          done
+          echo "---- robots.txt ----"
+          curl -sS -A "$UA" "https://www.lottery.ie/robots.txt" | head -40

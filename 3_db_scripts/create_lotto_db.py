@@ -99,8 +99,23 @@ def write_csv(draws, path):
         w.writerows(["" if v is None else v for v in d] for d in draws)
 
 
+def same_db(draws, path):
+    """기존 DB 의 내용이 같으면 True (SQLite 파일은 다시 만들 때마다 바이트가 달라져 불필요한 커밋이 생김)"""
+    if not path.exists():
+        return False
+    try:
+        conn = sqlite3.connect(path)
+        rows = conn.execute("SELECT * FROM past_winners ORDER BY 회차 DESC").fetchall()
+        conn.close()
+    except sqlite3.Error:
+        return False
+    return rows == [tuple(d) for d in sorted(draws, key=lambda d: -d[0])]
+
+
 def write_db(draws, path):
     path.parent.mkdir(parents=True, exist_ok=True)
+    if same_db(draws, path):
+        return
     if path.exists():
         path.unlink()
     conn = sqlite3.connect(path)

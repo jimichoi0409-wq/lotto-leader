@@ -486,3 +486,15 @@ python collect_draws.py --import eurojackpot 받은파일.csv   # 열: draw_date
 - 출시 전 남은 설정: 광고 ID 6개 + AdMob 앱 ID 2개(현재 테스트 광고), 업로드 키(key.properties 없음 → 디버그 키로 서명 중), drawsBaseUrl(빈 값).
 - 폰 실제 확인 (2026-10-25 22:15): 복권 목록의 9개 회차 수 정확(캐나다 4,462·파워볼 1,424·베트남 1,580, 아일랜드 "준비 중"),
   캐나다 10/24 결과·번호 통계(최근 50회, 직접 계산과 일치)·5조합 생성 정상, 데이터 없는 아일랜드도 생성 정상(1~47), 앱 오류 기록 없음.
+
+## 2026-10-25 GitHub 저장소 연결
+
+- 저장소: https://github.com/jimichoi0409-wq/lotto-leader (공개). 커밋 작성자는 Lotto Leader / jnhteamsoft@gmail.com.
+- GitHub Pages: main 브랜치 `/docs` → https://jimichoi0409-wq.github.io/lotto-leader/
+  - 당첨번호: `/draws/manifest.json` 등, 개인정보처리방침 `/privacy/`, 지원 페이지 `/`
+  - 앱 `lib/data/sync_config.dart` 의 `drawsBaseUrl` 을 `.../lotto-leader/draws/` 로 설정.
+- 자동 수집(Update lottery draws)을 GitHub 서버에서 수동 실행 → 7개 복권 모두 성공.
+- 고친 점: 액션 버전 올림(Node 24), 한국 DB(lotto.db)가 내용이 같으면 다시 만들지 않게 함(매일 불필요한 커밋 방지).
+- 아일랜드: GitHub(미국) 서버에서는 lottery.ie 가 열리지만 약관이 추출·재이용·상업적 이용 금지 → 자동 수집 안 함, 관리자 입력.
+  공식 페이지 정보로 앱 설정 수정: 당첨 등급 8개(2개+보너스 추가), 추첨 시각 19:45(더블린).
+- 업로드하지 않는 파일: 빌드 결과물, 서명 키, key.properties, 4_backup, APK, `2_data/official_checks/ca649_wclc.csv`.

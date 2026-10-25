@@ -30,7 +30,8 @@
                공식 vietlott.vn 은 해외 접속 차단. 데이터 이용 조건은 원 출처(Vietlott)를 따름
   ca649        자동 출처 없음. 과거분은 Kaggle "Lotto 6/49 Historical Dataset" (CC0) 를 --import 로 넣음 (2026-10-25,
                WCLC 공식 페이지 74회 대조 일치). 새 회차는 관리자 입력 양식(admin_entry.py)
-  ie_lotto: 쓸 수 있는 출처 미확인 → 관리자 입력 양식(admin_entry.py) 또는 --import
+  ie_lotto     자동 출처 없음. lottery.ie 는 한국 접속 차단(미국 GitHub 서버에서는 열림)이지만 약관이
+               추출·재이용·상업적 이용을 금지(Terms and conditions v10, 2026-08) → 관리자 입력 양식만 사용
 """
 import csv
 import datetime as dt

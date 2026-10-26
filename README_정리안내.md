@@ -514,3 +514,10 @@ python collect_draws.py --import eurojackpot 받은파일.csv   # 열: draw_date
   메인·조합 팝업·복권 선택·필터 목록·배너 광고 화면 깨짐 없음, 오류 로그 없음.
 - Play 기능 그래픽(1024×500) 7개 언어: `5_store_assets/feature_graphic/feature_<언어>.png`.
   문구는 스토어 등록 문구의 iOS 부제를 그대로 씀. 글꼴은 Windows에 설치된 Noto Sans(OFL, 상업 이용 가능).
+
+## Play 개발자 계정 · 업로드 키 (2026-10-26)
+
+- Play Console: 개인 계정 "한지성"(jnhteamsoft@gmail.com) 생성 확인. 남은 계정 설정 3가지: 본인 확인, Android 기기 확인, 연락처 전화번호 인증.
+- 업로드 키: `C:/Users/review/LottoLeader_Keys/upload-keystore.jks` (별칭 upload). 비밀번호는 `android/key.properties` 에만 있음, GitHub 제외.
+  SHA-256 지문 7F:1F:64:10:…:95:15. 백업 안내는 키 폴더의 `README_꼭_읽기.txt`.
+- `flutter build appbundle --release` → `build/app/outputs/bundle/release/app-release.aab` (업로드 키 서명 확인).

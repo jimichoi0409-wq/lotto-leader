@@ -521,3 +521,11 @@ python collect_draws.py --import eurojackpot 받은파일.csv   # 열: draw_date
 - 업로드 키: `C:/Users/review/LottoLeader_Keys/upload-keystore.jks` (별칭 upload). 비밀번호는 `android/key.properties` 에만 있음, GitHub 제외.
   SHA-256 지문 7F:1F:64:10:…:95:15. 백업 안내는 키 폴더의 `README_꼭_읽기.txt`.
 - `flutter build appbundle --release` → `build/app/outputs/bundle/release/app-release.aab` (업로드 키 서명 확인).
+
+## Play 출시 준비 문서 (2026-10-26)
+
+- 계정 상태: 기기 확인 완료, 본인 확인 Google 검토 중, 연락처 전화 인증은 본인 확인 후 진행. 본인 확인 전에는 "앱 만들기" 불가.
+- `5_store_assets/Play_Console_입력_안내.md`: 앱 만들기 → 앱 콘텐츠 → 스토어 설정 → 등록정보 → 비공개 테스트 순서별 입력값, 7개 언어 출시 노트.
+- `5_store_assets/비공개_테스트_참여_안내.md`: 테스터에게 보낼 참여 방법.
+- 기능 그래픽 문구를 "최대 24가지"로 수정 (한국 로또는 19가지라 스토어 문구와 맞춤).
+- 점검: 대상 API 36 충족, FOREGROUND_SERVICE 권한은 라이브러리 기본값으로 별도 선언 불필요.

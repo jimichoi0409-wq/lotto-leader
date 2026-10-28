@@ -24,3 +24,6 @@ local.properties
 
 # 이사만루체: 앱 임베딩은 허용, 글꼴 파일 배포는 금지 (눈누 사용범위) → 저장소에 올리지 않음
 1_app_flutter/lotto_app/assets/fonts/*.ttf
+
+# 테스터 이메일 (개인정보, 공개 저장소에 올리지 않음)
+5_store_assets/테스터_목록.csv

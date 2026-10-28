@@ -550,3 +550,16 @@ python collect_draws.py --import eurojackpot 받은파일.csv   # 열: draw_date
 - 버전 1 (1.0.0), 설치 크기 14.2MB, 출시 노트 7개 언어. AdMob 실제 ID 전이라 테스트 광고 상태.
 - 2026-10-28 "검토를 위해 변경사항 20개 제출" 완료 → 빠른 검사 후 Google 검토(보통 7일 이내). 관리형 게시 꺼짐: 승인되면 바로 테스터에게 공개.
 - AAB(51MB)는 Claude 업로드 한도(10MB)를 넘어 사용자가 직접 업로드함.
+
+## AdMob 설정 (2026-10-28)
+
+- 계정: jnhteamsoft@gmail.com, 게시자 ID pub-3679955202953976, 서울 시간대, 통화 USD. 계정 승인 대기(보통 24시간 안).
+- 앱 "로또대장"(Android, 스토어 미연결) 앱 ID `ca-app-pub-3679955202953976~4827343238` → `android/gradle.properties` 의 `ADMOB_APP_ID`.
+- 광고 단위 (`ad_config.dart` 릴리스 ID, 디버그는 계속 Google 테스트 광고):
+  - 배너 banner_bottom `/7845434998`
+  - 전면 interstitial_extract `/7313071629` (게재빈도: 사용자당 60분에 4회)
+  - 보상형 rewarded_extra `/5019961107` (보상 1 extract)
+- 개인 정보 보호 및 메시지 → 유럽 규정 메시지 "로또대장 유럽 동의" 게시 (영어 기본 + 독일어·스페인어·프랑스어, "동의하지 않음" 버튼 전 국가 사용, 개인정보처리방침 URL 연결).
+- versionCode 1 → 2 (`pubspec.yaml` 1.0.0+2), 새 AAB 빌드 완료. Play 업로드는 아직 안 함.
+- 남은 일: 정식 출시 후 AdMob 앱을 Play 스토어와 연결(앱 검토), app-ads.txt 를 개발자 웹사이트 루트에 게시, 지급 정보 등록.
+- 2026-10-28 versionCode 2 를 비공개 테스트 - Alpha 에 올려 검토 다시 제출 (버전 1 은 포함 안 함, 출시 비율 100%). 검토가 처음부터 다시 시작됨.

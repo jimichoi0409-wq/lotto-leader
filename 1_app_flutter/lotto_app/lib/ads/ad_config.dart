@@ -11,9 +11,10 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 
 // ---- 실제 광고 단위 ID (AdMob 콘솔 → 앱 → 광고 단위) ----
-const String _releaseBannerAndroid = '';
-const String _releaseInterstitialAndroid = '';
-const String _releaseRewardedAndroid = '';
+const String _releaseBannerAndroid = 'ca-app-pub-3679955202953976/7845434998';
+const String _releaseInterstitialAndroid =
+    'ca-app-pub-3679955202953976/7313071629';
+const String _releaseRewardedAndroid = 'ca-app-pub-3679955202953976/5019961107';
 const String _releaseBannerIos = '';
 const String _releaseInterstitialIos = '';
 const String _releaseRewardedIos = '';

@@ -3003,9 +3003,11 @@ class _LottoFilterPageState extends State<LottoFilterPage>
     }
 
     // 무료 개수를 넘으면 보상형 광고를 제안. 광고를 쓸 수 없으면 막지 않고 그대로 추출합니다.
+    var sawRewarded = false;
     if (targetCount > freeExtractLimit && AdManager.instance.rewardedReady) {
       final watch = await _askRewardedExtraction(targetCount);
       if (watch == null || !mounted) return;
+      sawRewarded = watch;
       if (!watch) {
         targetCount = freeExtractLimit;
       } else if (!await AdManager.instance.showRewarded()) {
@@ -3048,7 +3050,9 @@ class _LottoFilterPageState extends State<LottoFilterPage>
         ),
       );
 
-      await AdManager.instance.maybeShowInterstitial();
+      await AdManager.instance.maybeShowInterstitial(
+        afterRewarded: sawRewarded,
+      );
       if (!mounted) return;
 
       showGeneralDialog(

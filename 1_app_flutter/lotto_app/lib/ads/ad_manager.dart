@@ -116,7 +116,12 @@ class AdManager {
 
   /// 번호 추출 직후, 결과를 보여 주기 전에 호출.
   /// N번째 추출마다 한 번, 설치 첫날은 제외. 광고가 닫힐 때까지 기다린 뒤 돌아옵니다.
-  Future<void> maybeShowInterstitial() async {
+  /// 이번 추출에서 이미 보상형 광고를 봤다면 연달아 광고를 띄우지 않고 횟수도 처음부터 셉니다.
+  Future<void> maybeShowInterstitial({bool afterRewarded = false}) async {
+    if (afterRewarded) {
+      _extractions = 0;
+      return;
+    }
     _extractions++;
     final ad = _interstitial;
     if (!canShowAds.value ||

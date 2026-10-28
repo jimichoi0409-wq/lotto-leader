@@ -55,7 +55,7 @@ String get rewardedAdUnitId => Platform.isIOS
 // ---- 노출 규칙 (기획서 8단계) ----
 
 /// 번호 추출 몇 번마다 전면 광고를 한 번 보여 줄지
-const int interstitialEveryNExtractions = 3;
+const int interstitialEveryNExtractions = 2;
 
 /// 한 번에 이 개수까지는 광고 없이 추출. 더 많이 뽑으려면 보상형 광고를 보고 추출합니다.
 const int freeExtractLimit = 10;

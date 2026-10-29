@@ -576,4 +576,4 @@ python collect_draws.py --import eurojackpot 받은파일.csv   # 열: draw_date
 - 시작 화면: Android 12 이상에서 파란 앱 아이콘 대신 노란 배경 + 가로형 로고 (`windowSplashScreenAnimatedIcon` = `splash_icon`, 288dp 캔버스에 로고 176dp). 11 이하도 같은 로고.
 - 앱 안 로고(상단 제목·첫 안내) 고해상도 교체. 원본은 `5_store_assets/app_logo_hd.png` (1749px).
 - 테스터 목록: ratchanee021166 → hongfa1030 교체 (Play Console 목록·로컬 csv).
-- `pubspec.yaml` 1.0.0+3, 릴리스 AAB 빌드·업로드 키 서명 확인. Play 업로드는 아직 안 함.
+- `pubspec.yaml` 1.0.0+3, 릴리스 AAB 빌드·업로드 키 서명 확인. 2026-10-30 비공개 테스트 - Alpha 에 업로드(버전 2 대체, 출시 노트 7개 언어, 출시 비율 100%) 후 검토 제출.

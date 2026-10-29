@@ -569,3 +569,11 @@ python collect_draws.py --import eurojackpot 받은파일.csv   # 열: draw_date
 - Play: 비공개 테스트 - Alpha 버전 2 (1.0.0) 게시됨 (최근 게시일 2026-10-28). 참여 링크 https://play.google.com/apps/testing/com.lottoleader.app
 - 테스터에게 보낼 문구: `5_store_assets/테스터_초대_메시지.md`
 - AdMob: 계정 승인, 지급 프로필 완료. 남은 단계는 "앱 스토어 연결"뿐인데, 스토어 검색에 공개된(정식 출시) 뒤에만 가능.
+
+## versionCode 3 준비 (2026-10-30)
+
+- 아이리시 로또 추첨 요일 월·수·토 (2026-09-07부터 월요일 추첨). 관리자 입력 양식은 커밋 즉시 적용, 앱 표시·알림은 이 버전부터.
+- 시작 화면: Android 12 이상에서 파란 앱 아이콘 대신 노란 배경 + 가로형 로고 (`windowSplashScreenAnimatedIcon` = `splash_icon`, 288dp 캔버스에 로고 176dp). 11 이하도 같은 로고.
+- 앱 안 로고(상단 제목·첫 안내) 고해상도 교체. 원본은 `5_store_assets/app_logo_hd.png` (1749px).
+- 테스터 목록: ratchanee021166 → hongfa1030 교체 (Play Console 목록·로컬 csv).
+- `pubspec.yaml` 1.0.0+3, 릴리스 AAB 빌드·업로드 키 서명 확인. Play 업로드는 아직 안 함.

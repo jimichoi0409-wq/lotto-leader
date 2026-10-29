@@ -563,3 +563,9 @@ python collect_draws.py --import eurojackpot 받은파일.csv   # 열: draw_date
 - versionCode 1 → 2 (`pubspec.yaml` 1.0.0+2), 새 AAB 빌드 완료. Play 업로드는 아직 안 함.
 - 남은 일: 정식 출시 후 AdMob 앱을 Play 스토어와 연결(앱 검토), app-ads.txt 를 개발자 웹사이트 루트에 게시, 지급 정보 등록.
 - 2026-10-28 versionCode 2 를 비공개 테스트 - Alpha 에 올려 검토 다시 제출 (버전 1 은 포함 안 함, 출시 비율 100%). 검토가 처음부터 다시 시작됨.
+
+## 비공개 테스트 게시 · AdMob 계정 승인 (2026-10-29 확인)
+
+- Play: 비공개 테스트 - Alpha 버전 2 (1.0.0) 게시됨 (최근 게시일 2026-10-28). 참여 링크 https://play.google.com/apps/testing/com.lottoleader.app
+- 테스터에게 보낼 문구: `5_store_assets/테스터_초대_메시지.md`
+- AdMob: 계정 승인, 지급 프로필 완료. 남은 단계는 "앱 스토어 연결"뿐인데, 스토어 검색에 공개된(정식 출시) 뒤에만 가능.

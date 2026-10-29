@@ -51,6 +51,7 @@ void main() {
       const WeeklySlot(4, 15, 45),
     ]);
     expect(alarmSlots(ie), [
+      const WeeklySlot(1, 16, 45),
       const WeeklySlot(3, 16, 45),
       const WeeklySlot(6, 16, 45),
     ]);

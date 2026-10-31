@@ -3,9 +3,9 @@
   "games": {
     "kr645": {
       "file": "kr645.csv",
-      "count": 1247,
-      "latestDate": "2026-10-24",
-      "sha256": "8496a0f7d61cf37aa682e543c9d3c88baeb944cde13edf3f6386f38eecfa7ae4",
+      "count": 1248,
+      "latestDate": "2026-10-31",
+      "sha256": "4fbded6270b03c318fcefcbeab21447981232825c3b58a0d033f73ab30383a3c",
       "revision": 0
     },
     "powerball": {
@@ -17,9 +17,9 @@
     },
     "megamillions": {
       "file": "megamillions.csv",
-      "count": 163,
-      "latestDate": "2026-10-27",
-      "sha256": "d3896982e25376e3517cf20059baa538c392131af5ad0ef609d8d2dfd81c9959",
+      "count": 164,
+      "latestDate": "2026-10-30",
+      "sha256": "51b848929f998b2bc8f92641ce86184c3a5f4a5753a12e679255acaa41db68e0",
       "revision": 0
     },
     "ca649": {
@@ -31,16 +31,16 @@
     },
     "euromillions": {
       "file": "euromillions.csv",
-      "count": 1053,
-      "latestDate": "2026-10-27",
-      "sha256": "8c4ab59016e22c20a6a051c753aa0433a096b654795d2ce282ca2b5fe6dda90c",
+      "count": 1054,
+      "latestDate": "2026-10-30",
+      "sha256": "e08eac65da1b6dbef0b60317183781d81934c2deb76a66456972f8eba9e32d56",
       "revision": 0
     },
     "eurojackpot": {
       "file": "eurojackpot.csv",
-      "count": 121,
-      "latestDate": "2026-10-27",
-      "sha256": "70af2f3f271c0d190120f405a7bbbbb578030ae25576f0be41af7a1e96028050",
+      "count": 122,
+      "latestDate": "2026-10-30",
+      "sha256": "1da7fc83d229bf36da365013b39204b52752a8717718b4c59447354dd4234313",
       "revision": 0
     },
     "jp_loto6": {
@@ -52,9 +52,9 @@
     },
     "vn_mega645": {
       "file": "vn_mega645.csv",
-      "count": 1580,
-      "latestDate": "2026-10-25",
-      "sha256": "8fbd9c9b9429015d5d1619189b1eff308d75d69ca75f3d3f54aab575a88784f3",
+      "count": 1581,
+      "latestDate": "2026-10-28",
+      "sha256": "afe19033c7cdb2863576508cb8dc0b0d109a511d96e85a997faf59b69d7b81d5",
       "revision": 0
     }
   }

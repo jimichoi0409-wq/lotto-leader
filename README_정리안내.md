@@ -590,4 +590,4 @@ python collect_draws.py --import eurojackpot 받은파일.csv   # 열: draw_date
 - 당첨번호 갱신: 앱을 **실행할 때마다 항상** 서버(manifest.json) 확인 (`DrawSync.run(force: true)`). 다시 화면에 띄울 때는 최소 5분 간격 (`drawSyncInterval` 1시간 → 5분).
 - 참고: GitHub Pages CDN 이 파일을 최대 10분 캐시하고 `?t=` 쿼리로도 우회되지 않음(직접 확인). 새 번호는 게시 후 최대 10분 뒤부터 받음.
 - 종료 확인 창: 메인 화면에서 뒤로 가기 → "앱 종료 / 로또대장을 종료하시겠어요? / 취소 · 종료" (7개 언어, `PopScope` + `SystemNavigator.pop`).
-- 필터 추가(위 항목) 포함. `pubspec.yaml` 1.0.0+4, 릴리스 AAB 빌드·업로드 키 서명 확인. Play 업로드는 아직 안 함.
+- 필터 추가(위 항목) 포함. `pubspec.yaml` 1.0.0+4, 릴리스 AAB 빌드·업로드 키 서명 확인. 2026-10-31 비공개 테스트(Alpha) 버전 4 (1.0.0) 업로드, 7개 언어 출시 노트, 출시율 100%, **검토 제출 완료**. 결과 메일 대기.

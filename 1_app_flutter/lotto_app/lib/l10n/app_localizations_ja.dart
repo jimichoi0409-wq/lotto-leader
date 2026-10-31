@@ -381,6 +381,15 @@ class AppLocalizationsJa extends AppLocalizations {
   String get cancel => 'キャンセル';
 
   @override
+  String get exitTitle => 'アプリの終了';
+
+  @override
+  String get exitConfirm => 'Lotto Leader を終了しますか？';
+
+  @override
+  String get exitButton => '終了';
+
+  @override
   String get confirm => 'OK';
 
   @override

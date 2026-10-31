@@ -386,6 +386,15 @@ class AppLocalizationsVi extends AppLocalizations {
   String get cancel => 'Hủy';
 
   @override
+  String get exitTitle => 'Thoát ứng dụng';
+
+  @override
+  String get exitConfirm => 'Bạn có muốn thoát Lotto Leader không?';
+
+  @override
+  String get exitButton => 'Thoát';
+
+  @override
   String get confirm => 'OK';
 
   @override

@@ -50,17 +50,21 @@ class DrawSync {
 
   /// 새 회차가 있는 복권만 {복권id: 전체 당첨번호(최신이 앞)} 로 돌려줍니다.
   /// [local] 은 지금 앱이 쓰고 있는 당첨번호 (검증 기준).
+  /// [force] 가 true 면 마지막 확인 시각과 상관없이 확인합니다 (앱 실행 시).
   static Future<Map<String, List<DrawRecord>>> run(
     List<GameConfig> games,
-    Map<String, List<DrawRecord>> local,
-  ) async {
+    Map<String, List<DrawRecord>> local, {
+    bool force = false,
+  }) async {
     if (!enabled) return {};
     final updates = <String, List<DrawRecord>>{};
     try {
       final prefs = await SharedPreferences.getInstance();
       final last = prefs.getInt(_prefKey);
       final now = DateTime.now().millisecondsSinceEpoch;
-      if (last != null && now - last < drawSyncInterval.inMilliseconds) {
+      if (!force &&
+          last != null &&
+          now - last < drawSyncInterval.inMilliseconds) {
         return {};
       }
 
@@ -108,6 +112,7 @@ class DrawSync {
     final client = HttpClient()
       ..connectionTimeout = const Duration(seconds: 10);
     try {
+      // GitHub Pages 는 파일을 최대 10분 캐시합니다 (주소에 ?t= 를 붙여도 캐시를 건너뛰지 않음).
       final req = await client.getUrl(Uri.parse('$drawsBaseUrl$name'));
       final res = await req.close().timeout(const Duration(seconds: 20));
       if (res.statusCode != 200) {

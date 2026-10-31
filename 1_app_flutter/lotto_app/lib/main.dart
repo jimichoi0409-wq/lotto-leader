@@ -1775,14 +1775,15 @@ class _LottoFilterPageState extends State<LottoFilterPage>
       await _connectAlarmTaps();
       await _restoreFilters(_activeGame.id);
       await _initDatabase();
-      await _syncDraws();
+      // 앱을 실행할 때마다 서버의 최신 당첨번호를 확인합니다.
+      await _syncDraws(force: true);
     });
     WidgetsBinding.instance.addPostFrameCallback(
       (_) => AdManager.instance.start(),
     );
   }
 
-  /// 앱을 다시 화면에 띄울 때도 새 당첨번호를 확인 (간격은 sync_config 의 drawSyncInterval)
+  /// 앱을 다시 화면에 띄울 때도 새 당첨번호를 확인 (최소 간격은 sync_config 의 drawSyncInterval)
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {
     if (state == AppLifecycleState.resumed && _isDbReady) _syncDraws();
@@ -1812,19 +1813,19 @@ class _LottoFilterPageState extends State<LottoFilterPage>
   /// 한국 6/45 는 기기 DB(past_winners)에 새 회차를 추가하고, 해외 복권은 메모리 목록을 바꿉니다.
   bool _syncing = false;
 
-  Future<void> _syncDraws() async {
+  Future<void> _syncDraws({bool force = false}) async {
     if (!DrawSync.enabled || _games.isEmpty || _syncing) return;
     _syncing = true;
     try {
-      await _syncDrawsOnce();
+      await _syncDrawsOnce(force: force);
     } finally {
       _syncing = false;
     }
   }
 
-  Future<void> _syncDrawsOnce() async {
+  Future<void> _syncDrawsOnce({bool force = false}) async {
     final local = <String, List<DrawRecord>>{..._officialDraws};
-    final updates = await DrawSync.run(_games, local);
+    final updates = await DrawSync.run(_games, local, force: force);
     if (updates.isEmpty || !mounted) return;
 
     final kr = updates['kr645'];
@@ -3399,9 +3400,44 @@ class _LottoFilterPageState extends State<LottoFilterPage>
     );
   }
 
+  /// 뒤로 가기로 앱을 닫기 전에 종료할지 묻습니다.
+  Future<void> _confirmExit() async {
+    final ok = await showDialog<bool>(
+      context: context,
+      builder: (c) => AlertDialog(
+        title: Text(t.exitTitle, style: TextStyle(fontFamily: appFont)),
+        content: Text(
+          t.exitConfirm,
+          style: TextStyle(fontFamily: appFont, height: 1.5),
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(c, false),
+            child: Text(t.cancel),
+          ),
+          TextButton(
+            onPressed: () => Navigator.pop(c, true),
+            child: Text(t.exitButton),
+          ),
+        ],
+      ),
+    );
+    if (ok == true) await SystemNavigator.pop();
+  }
+
   @override
   Widget build(BuildContext context) {
     appFont = _lang == 'ko' ? 'Esamanru' : null;
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (didPop, _) {
+        if (!didPop) _confirmExit();
+      },
+      child: _buildHome(context),
+    );
+  }
+
+  Widget _buildHome(BuildContext context) {
     return Scaffold(
       backgroundColor: _bgGray,
       // 하단 고정 배너. 광고가 없으면 공간을 차지하지 않습니다.

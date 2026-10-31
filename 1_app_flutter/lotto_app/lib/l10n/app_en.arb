@@ -299,6 +299,9 @@
   "historyDeleted": "Entry deleted.",
   "delete": "Delete",
   "cancel": "Cancel",
+  "exitTitle": "Exit app",
+  "exitConfirm": "Do you want to exit Lotto Leader?",
+  "exitButton": "Exit",
   "confirm": "OK",
   "profileNickname": "Nickname: {name}",
   "@profileNickname": {

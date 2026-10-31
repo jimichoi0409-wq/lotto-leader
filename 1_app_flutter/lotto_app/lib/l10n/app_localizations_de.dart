@@ -399,6 +399,15 @@ class AppLocalizationsDe extends AppLocalizations {
   String get cancel => 'Abbrechen';
 
   @override
+  String get exitTitle => 'App beenden';
+
+  @override
+  String get exitConfirm => 'Möchten Sie Lotto Leader beenden?';
+
+  @override
+  String get exitButton => 'Beenden';
+
+  @override
   String get confirm => 'OK';
 
   @override

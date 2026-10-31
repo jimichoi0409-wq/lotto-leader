@@ -382,6 +382,15 @@ class AppLocalizationsKo extends AppLocalizations {
   String get cancel => '취소';
 
   @override
+  String get exitTitle => '앱 종료';
+
+  @override
+  String get exitConfirm => '로또대장을 종료하시겠어요?';
+
+  @override
+  String get exitButton => '종료';
+
+  @override
   String get confirm => '확인';
 
   @override

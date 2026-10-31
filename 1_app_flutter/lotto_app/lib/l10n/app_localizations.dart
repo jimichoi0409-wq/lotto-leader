@@ -750,6 +750,24 @@ abstract class AppLocalizations {
   /// **'Cancel'**
   String get cancel;
 
+  /// No description provided for @exitTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit app'**
+  String get exitTitle;
+
+  /// No description provided for @exitConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Do you want to exit Lotto Leader?'**
+  String get exitConfirm;
+
+  /// No description provided for @exitButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Exit'**
+  String get exitButton;
+
   /// No description provided for @confirm.
   ///
   /// In en, this message translates to:

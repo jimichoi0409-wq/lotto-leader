@@ -571,6 +571,13 @@ class AppLocalizationsJa extends AppLocalizations {
   String get h3Consec => '1, 2, 3 や 33, 34, 35 のような3連続の数字を含む組み合わせを除外します。';
 
   @override
+  String get fDouble3Consec => '3連続＋3連続の数字を除外';
+
+  @override
+  String get hDouble3Consec =>
+      '1, 2, 3, 20, 21, 22 のように3連続の数字が2組ある組み合わせを除外します。';
+
+  @override
   String get fSkip1 => '2つおきの3数字を除外';
 
   @override

@@ -16,6 +16,9 @@
 //   excSameDecade4   같은 10번대에 4개 이상
 //   excRepeatLast2   직전 회차 메인 번호 2개 이상 포함
 //   보조 번호: bonusExcRecent(최근 N회), bonusExcConsec(연속 쌍), bonusExcSameParity(둘 다 홀/짝)
+//
+// 6개 번호 복권 추가 (2026-10-31)
+//   excDouble3Consec 3개 연속 + 3개 연속 (예: 1·2·3 + 20·21·22). 6/45 기준 820개
 
 import 'dart:math' as math;
 
@@ -44,6 +47,9 @@ class FilterOptions {
   final bool excSkip2;
   final bool excSkip3;
   final bool exc2Pairs;
+
+  /// 정렬된 6개 번호가 앞 3개 연속 + 뒤 3개 연속 (6개 번호 복권만 해당)
+  final bool excDouble3Consec;
 
   final bool excNarrowRange;
 
@@ -86,6 +92,7 @@ class FilterOptions {
     this.excSkip2 = false,
     this.excSkip3 = false,
     this.exc2Pairs = false,
+    this.excDouble3Consec = false,
     this.excNarrowRange = false,
     this.narrowRangeMax,
     this.excAllOdd = false,
@@ -185,6 +192,7 @@ FilterOptions filterOptionsFromLegacy(Map<String, dynamic> p) {
     excSkip2: p['excSkip2'] as bool,
     excSkip3: p['excSkip3'] as bool,
     exc2Pairs: p['exc2Pairs'] as bool,
+    excDouble3Consec: p['excDouble3Consec'] == true,
     excNarrowRange: p['exc10Range'] as bool,
     excAllOdd: p['excAllOdd'] as bool,
     excAllEven: p['excAllEven'] as bool,

@@ -606,6 +606,13 @@ class AppLocalizationsEn extends AppLocalizations {
       'Excludes combinations with 3 consecutive numbers, such as 1, 2, 3 or 33, 34, 35.';
 
   @override
+  String get fDouble3Consec => 'Exclude two runs of 3 consecutive numbers';
+
+  @override
+  String get hDouble3Consec =>
+      'Excludes combinations made of two runs of 3 consecutive numbers, such as 1, 2, 3, 20, 21, 22.';
+
+  @override
   String get fSkip1 => 'Exclude 3 numbers in steps of 2';
 
   @override

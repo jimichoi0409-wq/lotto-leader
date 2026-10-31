@@ -206,4 +206,54 @@ void main() {
     expect(r.bonusCount, 26);
     expect(r.mainCount, 66 * 65 ~/ 2);
   });
+
+  test('3개 연속 + 3개 연속: 6/45 에서 정확히 820개 제외 (한국·베트남)', () {
+    for (final id in ['kr645', 'vn_mega645']) {
+      final r = runEngine(
+        EngineRequest(
+          game: games[id]!,
+          filters: const FilterOptions(excDouble3Consec: true),
+          pastWinners: const [],
+        ),
+      );
+      // 앞 묶음 a·a+1·a+2, 뒤 묶음 b·b+1·b+2 (b ≥ a+3, b+2 ≤ 45) → 1+2+…+40 = 820
+      expect(r.mainCount, 8145060 - 820, reason: id);
+    }
+  });
+
+  test('3개 연속 + 3개 연속: 해당 조합만 빠지고 일부 연속은 남음', () {
+    final r = runEngine(
+      EngineRequest(
+        game: games['kr645']!,
+        filters: const FilterOptions(
+          include: {1, 2, 3, 20, 21},
+          excDouble3Consec: true,
+        ),
+        pastWinners: const [],
+      ),
+    );
+    // 나머지 1개(40가지) 중 19(19·20·21)와 22(20·21·22)만 제외 → 40 − 2
+    expect(r.mainCount, 38);
+  });
+
+  test('한국 6/45 에도 추가 필터 5종이 엔진에서 적용됨', () {
+    final g = games['kr645']!;
+    final f = const FilterOptions(
+      excSumOutside: true,
+      excAllBirthday: true,
+      excAllLowOrHigh: true,
+      excSameDecade4: true,
+      excRepeatLast2: true,
+    );
+    final past = [
+      [3, 11, 20, 27, 38, 41],
+    ];
+    final r = runEngine(EngineRequest(game: g, filters: f, pastWinners: past));
+    int expected = 0;
+    for (final c in allCombos(45, 6)) {
+      if (refMain(c, f, g, past)) expected++;
+    }
+    expect(r.mainCount, expected);
+    expect(r.mainCount, lessThan(8145060));
+  });
 }

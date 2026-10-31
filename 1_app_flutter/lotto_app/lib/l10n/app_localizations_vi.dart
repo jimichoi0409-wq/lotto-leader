@@ -585,6 +585,13 @@ class AppLocalizationsVi extends AppLocalizations {
       'Loại các tổ hợp có 3 số liên tiếp như 1, 2, 3 hoặc 33, 34, 35.';
 
   @override
+  String get fDouble3Consec => 'Loại 2 nhóm 3 số liên tiếp';
+
+  @override
+  String get hDouble3Consec =>
+      'Loại các tổ hợp gồm 2 nhóm 3 số liên tiếp như 1, 2, 3, 20, 21, 22.';
+
+  @override
   String get fSkip1 => 'Loại 3 số cách đều 2';
 
   @override

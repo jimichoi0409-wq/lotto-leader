@@ -1056,6 +1056,18 @@ abstract class AppLocalizations {
   /// **'Excludes combinations with 3 consecutive numbers, such as 1, 2, 3 or 33, 34, 35.'**
   String get h3Consec;
 
+  /// No description provided for @fDouble3Consec.
+  ///
+  /// In en, this message translates to:
+  /// **'Exclude two runs of 3 consecutive numbers'**
+  String get fDouble3Consec;
+
+  /// No description provided for @hDouble3Consec.
+  ///
+  /// In en, this message translates to:
+  /// **'Excludes combinations made of two runs of 3 consecutive numbers, such as 1, 2, 3, 20, 21, 22.'**
+  String get hDouble3Consec;
+
   /// No description provided for @fSkip1.
   ///
   /// In en, this message translates to:

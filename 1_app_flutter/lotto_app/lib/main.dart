@@ -414,6 +414,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
       _exc4thSeq = false;
       _exc5thSeq = false;
       _exc3Consec = false;
+      _excDouble3Consec = false;
       _excSkip1 = false;
       _excSkip2 = false;
       _excSkip3 = false;
@@ -1660,6 +1661,10 @@ class _LottoFilterPageState extends State<LottoFilterPage>
 
   GameConfig get _activeGame => _game ?? _kr645Fallback;
   bool get _isKorea => _activeGame.id == 'kr645';
+
+  /// "3개 연속 + 3개 연속" 필터를 보여 줄 복권 (한국 6/45, 베트남 메가 6/45)
+  bool get _hasDouble3Consec =>
+      _activeGame.id == 'kr645' || _activeGame.id == 'vn_mega645';
   int get _mainCount => _game?.main.count ?? 6;
   int get _mainMax => _game?.main.max ?? 45;
   int get _totalCombinations => _game?.jackpotOddsDenominator ?? 8145060;
@@ -1690,6 +1695,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
   bool _exc4thSeq = false;
   bool _exc5thSeq = false;
   bool _exc3Consec = false;
+  bool _excDouble3Consec = false;
   bool _excSkip1 = false;
   bool _excSkip2 = false;
   bool _excSkip3 = false;
@@ -2017,6 +2023,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
     'exc4thSeq': _exc4thSeq,
     'exc5thSeq': _exc5thSeq,
     'exc3Consec': _exc3Consec,
+    'excDouble3Consec': _excDouble3Consec,
     'excSkip1': _excSkip1,
     'excSkip2': _excSkip2,
     'excSkip3': _excSkip3,
@@ -2053,6 +2060,8 @@ class _LottoFilterPageState extends State<LottoFilterPage>
         _exc5thSeq = v;
       case 'exc3Consec':
         _exc3Consec = v;
+      case 'excDouble3Consec':
+        _excDouble3Consec = v;
       case 'excSkip1':
         _excSkip1 = v;
       case 'excSkip2':
@@ -2492,6 +2501,13 @@ class _LottoFilterPageState extends State<LottoFilterPage>
         (v) => _exc5thSeq = v,
       ),
       _FilterItem(t.f3Consec, t.h3Consec, _exc3Consec, (v) => _exc3Consec = v),
+      if (_hasDouble3Consec)
+        _FilterItem(
+          t.fDouble3Consec,
+          t.hDouble3Consec,
+          _excDouble3Consec,
+          (v) => _excDouble3Consec = v,
+        ),
       _FilterItem(t.fSkip1, t.hSkip1, _excSkip1, (v) => _excSkip1 = v),
       _FilterItem(t.fSkip2, t.hSkip2, _excSkip2, (v) => _excSkip2 = v),
       _FilterItem(t.fSkip3, t.hSkip3, _excSkip3, (v) => _excSkip3 = v),
@@ -2534,8 +2550,8 @@ class _LottoFilterPageState extends State<LottoFilterPage>
         _excTripleMultiple,
         (v) => _excTripleMultiple = v,
       ),
-      // 해외 복권 추가 필터 (한국 로또 화면은 기존 그대로)
-      if (!_isKorea) ..._overseasFilterItems(pastNote),
+      // 추가 필터 (합계·생일·높낮이·10번대·직전 회차). 한국 로또도 2026-10-31부터 사용
+      ..._overseasFilterItems(pastNote),
     ];
   }
 
@@ -2782,6 +2798,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
       _exc4thSeq ? 1 : 0,
       _exc5thSeq ? 1 : 0,
       _exc3Consec ? 1 : 0,
+      _hasDouble3Consec && _excDouble3Consec ? 1 : 0,
       _excSkip1 ? 1 : 0,
       _excSkip2 ? 1 : 0,
       _excSkip3 ? 1 : 0,
@@ -2825,6 +2842,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
       'exc4thSeq': _exc4thSeq,
       'exc5thSeq': _exc5thSeq,
       'exc3Consec': _exc3Consec,
+      'excDouble3Consec': _hasDouble3Consec && _excDouble3Consec,
       'excSkip1': _excSkip1,
       'excSkip2': _excSkip2,
       'excSkip3': _excSkip3,

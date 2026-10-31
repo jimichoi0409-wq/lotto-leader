@@ -608,6 +608,13 @@ class AppLocalizationsEs extends AppLocalizations {
       'Excluye combinaciones con 3 números consecutivos, como 1, 2, 3 o 33, 34, 35.';
 
   @override
+  String get fDouble3Consec => 'Excluir dos grupos de 3 números consecutivos';
+
+  @override
+  String get hDouble3Consec =>
+      'Excluye combinaciones formadas por dos grupos de 3 números consecutivos, como 1, 2, 3, 20, 21, 22.';
+
+  @override
   String get fSkip1 => 'Excluir 3 números de 2 en 2';
 
   @override

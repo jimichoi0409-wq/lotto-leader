@@ -189,6 +189,14 @@ EngineResult runEngine(EngineRequest req) {
       }
     }
     if (f.exc2Pairs && ones >= 2) return false;
+    if (f.excDouble3Consec &&
+        k == 6 &&
+        c[1] - c[0] == 1 &&
+        c[2] - c[1] == 1 &&
+        c[4] - c[3] == 1 &&
+        c[5] - c[4] == 1) {
+      return false;
+    }
 
     if (f.excNarrowRange && c[k - 1] - c[0] <= narrowMax) return false;
 

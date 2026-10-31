@@ -612,6 +612,13 @@ class AppLocalizationsFr extends AppLocalizations {
       'Exclut les combinaisons avec 3 numéros consécutifs, comme 1, 2, 3 ou 33, 34, 35.';
 
   @override
+  String get fDouble3Consec => 'Exclure deux suites de 3 numéros consécutifs';
+
+  @override
+  String get hDouble3Consec =>
+      'Exclut les combinaisons formées de deux suites de 3 numéros consécutifs, comme 1, 2, 3, 20, 21, 22.';
+
+  @override
   String get fSkip1 => 'Exclure 3 numéros de 2 en 2';
 
   @override

@@ -575,6 +575,13 @@ class AppLocalizationsKo extends AppLocalizations {
   String get h3Consec => '1, 2, 3 또는 33, 34, 35처럼 연속 3개의 숫자가 이어지는 경우 제외합니다.';
 
   @override
+  String get fDouble3Consec => '3개 연속 + 3개 연속 패턴 제외';
+
+  @override
+  String get hDouble3Consec =>
+      '1, 2, 3, 20, 21, 22처럼 연속 3개 숫자 묶음이 두 번 나오는 조합을 제외합니다.';
+
+  @override
   String get fSkip1 => '1개씩 건너뛴 3자리이상 패턴 제외';
 
   @override
@@ -909,7 +916,7 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
-  String get filtersOverseas => '해외 복권 추가 필터';
+  String get filtersOverseas => '추가 필터';
 
   @override
   String filtersBonus(String label) {

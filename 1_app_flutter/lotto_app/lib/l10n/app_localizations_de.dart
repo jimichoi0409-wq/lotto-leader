@@ -600,6 +600,14 @@ class AppLocalizationsDe extends AppLocalizations {
       'Schließt Kombinationen mit 3 aufeinanderfolgenden Zahlen aus, z. B. 1, 2, 3 oder 33, 34, 35.';
 
   @override
+  String get fDouble3Consec =>
+      'Zwei Reihen mit je 3 aufeinanderfolgenden Zahlen ausschließen';
+
+  @override
+  String get hDouble3Consec =>
+      'Schließt Kombinationen aus zwei Reihen mit je 3 aufeinanderfolgenden Zahlen aus, z. B. 1, 2, 3, 20, 21, 22.';
+
+  @override
   String get fSkip1 => '3 Zahlen im Abstand 2 ausschließen';
 
   @override

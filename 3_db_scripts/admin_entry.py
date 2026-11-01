@@ -134,7 +134,7 @@ def main(argv):
 
     verb = "정정" if action == "correct" else "추가"
     msg = (f"✅ {name} {no}회 ({date}) {verb} 완료: **{nums}**\n\n"
-           f"앱 사용자에게는 다음 확인 때(최대 1시간, 앱을 다시 열 때) 반영됩니다."
+           f"앱 사용자에게는 앱을 실행할 때 반영됩니다 (서버 캐시 때문에 최대 10분 늦을 수 있음)."
            + (f"\n\n정정 번호(revision) {rev[game_id]} — 이미 받은 사용자도 고친 번호로 바뀝니다." if action == "correct" else ""))
     result_file.write_text(msg, encoding="utf-8")
     print(msg)

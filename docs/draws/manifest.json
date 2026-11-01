@@ -10,9 +10,9 @@
     },
     "powerball": {
       "file": "powerball.csv",
-      "count": 1426,
-      "latestDate": "2026-10-28",
-      "sha256": "c3cf8f0b06f619d0d257197048915a56c440e245fc644e951c81957fa118e2c0",
+      "count": 1427,
+      "latestDate": "2026-10-31",
+      "sha256": "d6375543db65774b7e05ad74215a507cb65b4d637bb63bd71fad938ca6ca8188",
       "revision": 0
     },
     "megamillions": {

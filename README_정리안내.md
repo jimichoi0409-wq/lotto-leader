@@ -618,4 +618,5 @@ python collect_draws.py --import eurojackpot 받은파일.csv   # 열: draw_date
 - 처음 실행 화면 흰 상자를 `Material` 로 변경 (Flutter 3.47 의 ListTile 경고 대응, 모양 동일).
 - 관리자 입력 양식·매뉴얼·SOURCES.md·스토어 문구(pt-BR 추가) 갱신.
 - 테스트 116개 통과, analyze 이상 없음. `pubspec.yaml` 1.0.0+5, 릴리스 AAB 빌드·업로드 키 서명 확인 (versionCode 5).
+- 2026-11-04 비공개 테스트(Alpha) 버전 5 (1.0.0) 업로드, 7개 언어 출시 노트(pt-BR 은 스토어 등록정보에 언어 추가 후 가능), 출시율 100%, **검토 제출 완료**. 결과 메일 대기.
 - 확인 필요: 휴대폰에서 메가세나 계산 속도, 포르투갈어 원어민 검수, Play Console 스토어 등록정보에 pt-BR 번역 추가.

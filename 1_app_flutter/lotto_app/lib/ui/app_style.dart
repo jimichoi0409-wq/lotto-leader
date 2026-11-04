@@ -43,6 +43,7 @@ const Map<String, String> languageFlags = {
   'de': '🇩🇪',
   'ja': '🇯🇵',
   'vi': '🇻🇳',
+  'pt': '🇧🇷',
 };
 
 /// 언어 앞에 붙이는 국기. null(기기 설정 따르기)이면 휴대폰 아이콘.

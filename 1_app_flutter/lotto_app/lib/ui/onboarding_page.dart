@@ -16,6 +16,7 @@ const Map<String, String> languageNames = {
   'de': 'Deutsch',
   'ja': '日本語',
   'vi': 'Tiếng Việt',
+  'pt': 'Português (Brasil)',
 };
 
 class OnboardingPage extends StatefulWidget {
@@ -106,13 +107,14 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 children: [
                   Image.asset('assets/images/app_logo.png', height: 52),
                   const SizedBox(height: 18),
-                  Container(
-                    padding: const EdgeInsets.fromLTRB(20, 22, 20, 20),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(18),
+                  // ListTile 이 눌림 효과를 그리도록 흰 상자는 Material 로 만듭니다
+                  Material(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(18),
+                    child: Padding(
+                      padding: const EdgeInsets.fromLTRB(20, 22, 20, 20),
+                      child: _step == 0 ? _languageStep(t) : _profileStep(t),
                     ),
-                    child: _step == 0 ? _languageStep(t) : _profileStep(t),
                   ),
                 ],
               ),

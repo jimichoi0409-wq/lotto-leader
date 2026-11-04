@@ -48,7 +48,7 @@ List<WeeklySlot> alarmSlots(
   for (final code in game.drawDays) {
     final day = _weekdayCodes.indexOf(code) + 1;
     if (day == 0) continue;
-    var minutes = game.drawHour * 60 + game.drawMinute - leadMinutes;
+    var minutes = game.drawMinutesOn(code) - leadMinutes;
     var weekday = day;
     while (minutes < 0) {
       minutes += 24 * 60;

@@ -30,8 +30,12 @@
                공식 vietlott.vn 은 해외 접속 차단. 데이터 이용 조건은 원 출처(Vietlott)를 따름
   ca649        자동 출처 없음. 과거분은 Kaggle "Lotto 6/49 Historical Dataset" (CC0) 를 --import 로 넣음 (2026-10-25,
                WCLC 공식 페이지 74회 대조 일치). 새 회차는 관리자 입력 양식(admin_entry.py)
-  ie_lotto     자동 출처 없음. lottery.ie 는 한국 접속 차단(미국 GitHub 서버에서는 열림)이지만 약관이
-               추출·재이용·상업적 이용을 금지(Terms and conditions v10, 2026-08) → 관리자 입력 양식만 사용
+  fr_loto      https://www.fdj.fr/jeux-de-tirage/loto/historique (FDJ 공식 ZIP, 2008-10 이후 5/49 + 행운번호 1/10)
+  jp_loto7     くじしるべ 全回CSV (kujishirube.info/loto7/csv/) — 로토6과 같은 이용 조건(2026年11月4日版):
+               영리·비영리 복제·가공·재배포 무상 허락, 출처 표시도 조건 아님
+  br_megasena  ValorFinal 공개 데이터셋 (valorfinal.com.br/dados/loteria-megasena, CC BY 4.0 — 앱 면책고지에
+               출처·라이선스 표시). 원 출처 Caixa. 최신 회차는 Caixa 공식 결과 API 와 대조(접속 안 되면 건너뜀)
+  (ie_lotto    2026-11-04 운영사 Premier Lotteries Ireland 가 결과 사용을 거절 → 앱에서 뺌)
 """
 import csv
 import datetime as dt
@@ -61,6 +65,15 @@ FDJ_EUROMILLIONS_ZIPS = [
     "https://www.sto.api.fdj.fr/anonymous/service-draw-info/v3/documentations/1a2b3c4d-9876-4562-b3fc-2c963f66afc6",  # 2016-09 ~ 2019-02
     "https://www.sto.api.fdj.fr/anonymous/service-draw-info/v3/documentations/1a2b3c4d-9876-4562-b3fc-2c963f66afd6",  # 2019-03 ~ 2020-02
     "https://www.sto.api.fdj.fr/anonymous/service-draw-info/v3/documentations/1a2b3c4d-9876-4562-b3fc-2c963f66afe6",  # 2020-02 ~ 현재
+]
+
+
+FDJ_LOTO_ZIPS = [
+    # 2008-10 이후(5/49 + 행운번호 1~10)만 필요. 슈퍼 로또·그랑 로또(특별 추첨) 파일은 받지 않습니다.
+    "https://www.sto.api.fdj.fr/anonymous/service-draw-info/v3/documentations/1a2b3c4d-9876-4562-b3fc-2c963f66afm6",  # 2008-10 ~ 2017-03
+    "https://www.sto.api.fdj.fr/anonymous/service-draw-info/v3/documentations/1a2b3c4d-9876-4562-b3fc-2c963f66afn6",  # 2017-03 ~ 2019-02
+    "https://www.sto.api.fdj.fr/anonymous/service-draw-info/v3/documentations/1a2b3c4d-9876-4562-b3fc-2c963f66afo6",  # 2019-02 ~ 2019-11
+    "https://www.sto.api.fdj.fr/anonymous/service-draw-info/v3/documentations/1a2b3c4d-9876-4562-b3fc-2c963f66afp6",  # 2019-11 ~ 현재
 ]
 
 
@@ -249,6 +262,21 @@ def collect_eurojackpot():
     return _merge("eurojackpot", fresh)
 
 
+def collect_fr_loto():
+    draws = []
+    for url in FDJ_LOTO_ZIPS:
+        with zipfile.ZipFile(io.BytesIO(http_get(url))) as z:
+            for name in z.namelist():
+                if not name.lower().endswith(".csv"):
+                    continue
+                text = z.read(name).decode("utf-8-sig", errors="replace")
+                for row in csv.DictReader(io.StringIO(text), delimiter=";"):
+                    row = {k.strip().lower(): (v or "").strip() for k, v in row.items() if k}
+                    main = sorted(int(row[f"boule_{i}"]) for i in range(1, 6))
+                    draws.append((parse_fdj_date(row["date_de_tirage"]), main, [int(row["numero_chance"])]))
+    return draws
+
+
 # ---------------------------------------------------------------- 일본 로토6 (くじしるべ, 재배포 허락)
 KUJISHIRUBE_LOTO6 = "https://kujishirube.info/loto6/csv/loto6-all.csv"
 
@@ -266,6 +294,25 @@ def collect_jp_loto6():
         draws.append((r[1], sorted(int(x) for x in r[2:8]), [int(r[8])]))
     _check_official("jp_loto6", draws)
     return _merge("jp_loto6", draws)
+
+
+KUJISHIRUBE_LOTO7 = "https://kujishirube.info/loto7/csv/loto7-all.csv"
+
+
+def collect_jp_loto7():
+    text = http_get(KUJISHIRUBE_LOTO7).decode("utf-8-sig")
+    rows = list(csv.reader(io.StringIO(text)))
+    head, body = rows[0], rows[1:]
+    want = ["回号", "抽選日"] + [f"本数字{i}" for i in range(1, 8)] + ["ボーナス数字1", "ボーナス数字2"]
+    if head[:11] != want:
+        raise RuntimeError(f"jp_loto7: CSV 형식이 바뀜 {head[:11]}")
+    draws = []
+    for i, r in enumerate(body, start=1):
+        if int(r[0]) != i:
+            raise RuntimeError(f"jp_loto7: 회차가 빠지거나 순서가 다름 (줄 {i}, 회차 {r[0]})")
+        draws.append((r[1], sorted(int(x) for x in r[2:9]), sorted(int(x) for x in r[9:11])))
+    _check_official("jp_loto7", draws)
+    return _merge("jp_loto7", draws)
 
 
 def _check_official(game_id, draws):
@@ -309,13 +356,48 @@ def collect_vn_mega645():
     return _merge("vn_mega645", [(d, primary[d][1], []) for d in sorted(primary)])
 
 
+# ---------------------------------------------------------------- 브라질 메가세나 (ValorFinal CC BY 4.0 + Caixa 대조)
+MEGASENA_CSV = "https://valorfinal.com.br/dados/loterias/megasena.csv"
+CAIXA_MEGASENA_API = "https://servicebus2.caixa.gov.br/portaldeloterias/api/megasena"
+
+
+def collect_br_megasena():
+    text = http_get(MEGASENA_CSV).decode("utf-8-sig")
+    rows = list(csv.DictReader(io.StringIO(text), delimiter=";"))
+    if not rows or list(rows[0]) != ["concurso", "data", "dezenas"]:
+        raise RuntimeError(f"br_megasena: CSV 형식이 바뀜 {list(rows[0]) if rows else '빈 파일'}")
+    draws = []
+    for i, r in enumerate(rows, start=1):
+        if int(r["concurso"]) != i:
+            raise RuntimeError(f"br_megasena: 회차가 빠지거나 순서가 다름 (줄 {i}, 회차 {r['concurso']})")
+        draws.append((r["data"], nums(r["dezenas"]), []))
+    _check_caixa_latest(draws)
+    _check_official("br_megasena", draws)
+    return _merge("br_megasena", draws)
+
+
+def _check_caixa_latest(draws):
+    """Caixa 공식 결과(가장 최근 회차)와 같은 회차가 있으면 번호가 같아야 합니다. 접속이 안 되면 건너뜀."""
+    try:
+        x = json.loads(http_get(CAIXA_MEGASENA_API))
+        no, main = int(x["numero"]), sorted(int(n) for n in x["listaDezenas"])
+    except Exception as e:  # 해외 서버 차단 등
+        print(f"[안내] br_megasena: Caixa 대조 건너뜀 ({e})")
+        return
+    if no <= len(draws) and draws[no - 1][1] != main:
+        raise RuntimeError(f"br_megasena {no}회: Caixa {main} ≠ 수집 {draws[no - 1][1]}")
+
+
 COLLECTORS = {
     "kr645": collect_kr645,
     "powerball": collect_powerball,
     "megamillions": collect_megamillions,
     "euromillions": collect_euromillions,
     "eurojackpot": collect_eurojackpot,
+    "fr_loto": collect_fr_loto,
     "jp_loto6": collect_jp_loto6,
+    "jp_loto7": collect_jp_loto7,
+    "br_megasena": collect_br_megasena,
     "vn_mega645": collect_vn_mega645,
 }
 
@@ -333,7 +415,7 @@ def validate(game, draws):
             continue
         where = f"{game['id']} {date}"
         weekday = WEEKDAYS[dt.date.fromisoformat(date).weekday()]
-        if weekday not in game["drawDays"]:
+        if weekday not in game["drawDays"] and not game.get("irregularDrawDays"):
             errors.append(f"{where}: 추첨 요일이 아님 ({weekday})")
         if len(main) != main_cfg["count"] or len(set(main)) != len(main):
             errors.append(f"{where}: 메인 번호 개수/중복 오류 {main}")

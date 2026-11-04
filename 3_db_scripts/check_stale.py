@@ -8,6 +8,9 @@ GitHub Actions(update-draws.yml)가 매일 실행합니다. 실패하면 GitHub 
 
 - 당첨번호 데이터가 아예 없는 복권(준비 중)은 '안내'만 하고 실패로 치지 않습니다.
 - 추첨 시각 + GRACE_HOURS 가 지난 추첨만 '들어와 있어야 할 회차'로 봅니다.
+- 요일별 추첨 시각이 다르면(drawTimeByDay, 예: 메가세나 일요일 11:00) 그 시각을 씁니다.
+- 추첨일이 자주 바뀌는 복권(irregularDrawDays, 예: 메가세나 특별 주간·공휴일)은
+  IRREGULAR_LENIENCY_DAYS 만큼 더 기다린 뒤에만 지연으로 봅니다.
 """
 import datetime as dt
 import json
@@ -22,11 +25,14 @@ WEEKDAYS = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
 # 추첨 후 이만큼 지나도 없으면 지연으로 봅니다 (출처 반영 지연 여유)
 GRACE_HOURS = 18
 
+# 추첨일이 불규칙한 복권은 이만큼 더 여유를 둡니다
+IRREGULAR_LENIENCY_DAYS = 4
+
 # 시간대 DB 가 없는 PC(Windows)에서 시험할 때만 쓰는 표준시 (서머타임 무시)
 _FALLBACK_OFFSETS = {
     "Asia/Seoul": 9, "Asia/Tokyo": 9, "Asia/Ho_Chi_Minh": 7,
     "America/New_York": -5, "America/Toronto": -5,
-    "Europe/Paris": 1, "Europe/Helsinki": 2, "Europe/Dublin": 0,
+    "Europe/Paris": 1, "Europe/Helsinki": 2, "America/Sao_Paulo": -3,
 }
 
 
@@ -41,12 +47,16 @@ def tz_of(name):
 def expected_latest(game, now_utc):
     """지금 기준으로 이미 들어와 있어야 할 가장 최근 추첨일 (현지 날짜)"""
     tz = tz_of(game["timezone"])
-    hh, mm = map(int, game.get("drawTime", "20:00").split(":"))
     local_now = now_utc.astimezone(tz)
+    if game.get("irregularDrawDays"):
+        local_now -= dt.timedelta(days=IRREGULAR_LENIENCY_DAYS)
     for back in range(0, 15):
         day = (local_now - dt.timedelta(days=back)).date()
-        if WEEKDAYS[day.weekday()] not in game["drawDays"]:
+        code = WEEKDAYS[day.weekday()]
+        if code not in game["drawDays"]:
             continue
+        time = game.get("drawTimeByDay", {}).get(code, game.get("drawTime", "20:00"))
+        hh, mm = map(int, time.split(":"))
         draw_at = dt.datetime(day.year, day.month, day.day, hh, mm, tzinfo=tz)
         if draw_at + dt.timedelta(hours=GRACE_HOURS) <= local_now:
             return day

@@ -15,15 +15,15 @@ void main() {
   Set<String> keys(Map<String, dynamic> m) =>
       m.keys.where((k) => !k.startsWith('@')).toSet();
 
-  test('지원 언어 7개', () {
+  test('지원 언어 8개', () {
     expect(
       AppLocalizations.supportedLocales.map((l) => l.languageCode).toSet(),
-      {'ko', 'en', 'es', 'fr', 'de', 'ja', 'vi'},
+      {'ko', 'en', 'es', 'fr', 'de', 'ja', 'vi', 'pt'},
     );
   });
 
   final template = arb('en');
-  for (final lang in ['ko', 'es', 'fr', 'de', 'ja', 'vi']) {
+  for (final lang in ['ko', 'es', 'fr', 'de', 'ja', 'vi', 'pt']) {
     test('$lang: 키와 자리표시자가 영어 원본과 같음', () {
       final m = arb(lang);
       expect(keys(m), keys(template));
@@ -39,7 +39,7 @@ void main() {
     });
   }
 
-  for (final lang in ['en', 'es', 'fr', 'de', 'ja', 'vi']) {
+  for (final lang in ['en', 'es', 'fr', 'de', 'ja', 'vi', 'pt']) {
     test('$lang: 한글이 섞이지 않음', () {
       final m = arb(lang);
       // 운영자 실명(한지성)은 모든 언어에서 그대로 표기하므로 검사에서 뺍니다.

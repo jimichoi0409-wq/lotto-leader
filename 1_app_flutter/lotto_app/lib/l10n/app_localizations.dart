@@ -11,6 +11,7 @@ import 'app_localizations_es.dart';
 import 'app_localizations_fr.dart';
 import 'app_localizations_ja.dart';
 import 'app_localizations_ko.dart';
+import 'app_localizations_pt.dart';
 import 'app_localizations_vi.dart';
 
 // ignore_for_file: type=lint
@@ -105,6 +106,7 @@ abstract class AppLocalizations {
     Locale('fr'),
     Locale('ja'),
     Locale('ko'),
+    Locale('pt'),
     Locale('vi'),
   ];
 
@@ -249,7 +251,7 @@ abstract class AppLocalizations {
   /// No description provided for @disclaimerText.
   ///
   /// In en, this message translates to:
-  /// **'This app is a tool that offers statistics on past winning numbers and helps you build number combinations.\n\nIn every lottery, each combination has exactly the same chance of winning the jackpot (e.g. 1 in 8,145,060 for Korea\'s Lotto 6/45 and 1 in 292,201,338 for Powerball). The filters and statistics in this app do not improve your odds. Please use them for fun and reference only.\n\nThis is an independent app and is not affiliated with any lottery operator (including Dong-hang Lottery, Powerball, Mega Millions, Lotto 6/49, EuroMillions, Eurojackpot, Loto 6, Irish Lotto or Vietlott).\n\nThe app does not guarantee any winnings. You are solely responsible for buying and playing lottery tickets.\n\nThe app does not sell tickets and offers no betting, cash rewards or gambling services.'**
+  /// **'This app is a tool that offers statistics on past winning numbers and helps you build number combinations.\n\nIn every lottery, each combination has exactly the same chance of winning the jackpot (e.g. 1 in 8,145,060 for Korea\'s Lotto 6/45 and 1 in 292,201,338 for Powerball). The filters and statistics in this app do not improve your odds. Please use them for fun and reference only.\n\nThis is an independent app and is not affiliated with any lottery operator (including Dong-hang Lottery, Powerball, Mega Millions, Lotto 6/49, EuroMillions, Eurojackpot, FDJ Loto, Caixa Mega-Sena, Loto 6, Loto 7 or Vietlott).\n\nThe app does not guarantee any winnings. You are solely responsible for buying and playing lottery tickets.\n\nThe app does not sell tickets and offers no betting, cash rewards or gambling services.\n\nMega-Sena results source: ValorFinal dataset (valorfinal.com.br/dados/loteria-megasena), licensed under CC BY 4.0 (creativecommons.org/licenses/by/4.0), converted to the app\'s format.'**
   String get disclaimerText;
 
   /// No description provided for @contactText.
@@ -1638,6 +1640,7 @@ class _AppLocalizationsDelegate
     'fr',
     'ja',
     'ko',
+    'pt',
     'vi',
   ].contains(locale.languageCode);
 
@@ -1660,6 +1663,8 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
       return AppLocalizationsJa();
     case 'ko':
       return AppLocalizationsKo();
+    case 'pt':
+      return AppLocalizationsPt();
     case 'vi':
       return AppLocalizationsVi();
   }

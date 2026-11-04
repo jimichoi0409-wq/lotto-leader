@@ -34,14 +34,32 @@ class BonusPool extends NumberPool {
 
 /// 당첨 등수 조건. bonus == -1 이면 보조 번호 일치 여부와 무관합니다.
 /// 보조 번호를 고르지 않는 복권(한국·캐나다)은 "추첨 보너스 번호가 내 번호에 있는지"를 1/0 으로 셉니다.
+/// JSON 에서 개수 자리에 [최소, 최대] 를 쓰면 범위로 봅니다.
+///   예) 로또7 6등 [3, [1, 2]] = 본숫자 3개 + 보너스 1~2개, 프랑스 로또 9등 [[0, 1], 1]
 class PrizeTier {
+  final int mainMin;
   final int main;
+  final int bonusMin;
   final int bonus;
 
-  const PrizeTier(this.main, this.bonus);
+  const PrizeTier(this.main, this.bonus, {int? mainMin, int? bonusMin})
+    : mainMin = mainMin ?? main,
+      bonusMin = bonusMin ?? bonus;
 
-  factory PrizeTier.fromJson(List<dynamic> j) =>
-      PrizeTier(j[0] as int, j[1] as int);
+  factory PrizeTier.fromJson(List<dynamic> j) {
+    final (mainMin, mainMax) = _range(j[0]);
+    final (bonusMin, bonusMax) = _range(j[1]);
+    return PrizeTier(mainMax, bonusMax, mainMin: mainMin, bonusMin: bonusMin);
+  }
+
+  static (int, int) _range(dynamic v) => v is List
+      ? (v[0] as int, v[1] as int)
+      : (v as int, v);
+
+  bool matches(int mainHits, int bonusHits) =>
+      mainHits >= mainMin &&
+      mainHits <= main &&
+      (bonus == -1 || (bonusHits >= bonusMin && bonusHits <= bonus));
 }
 
 class GameConfig {
@@ -51,6 +69,9 @@ class GameConfig {
   final NumberPool main;
   final BonusPool bonus;
   final List<String> drawDays;
+
+  /// 특별 추첨(메가세나 '메가 세마나', 공휴일 이동 등)으로 정해진 요일 밖에도 추첨이 있는 복권
+  final bool irregularDrawDays;
   final String timezone;
 
   /// 현재 규칙이 적용된 첫 추첨일. 통계·과거번호 필터는 이 날짜 이후만 씁니다.
@@ -60,6 +81,9 @@ class GameConfig {
   /// 추첨 시각 (timezone 기준 현지 시각) — 시, 분
   final int drawHour;
   final int drawMinute;
+
+  /// 요일마다 추첨 시각이 다를 때 (예: 메가세나 일요일 11:00). 요일 코드 → 0시부터의 분
+  final Map<String, int> drawTimeByDay;
 
   /// 1등부터 순서대로
   final List<PrizeTier> prizeTiers;
@@ -71,10 +95,12 @@ class GameConfig {
     required this.main,
     required this.bonus,
     required this.drawDays,
+    this.irregularDrawDays = false,
     required this.timezone,
     required this.ruleSince,
     this.drawHour = 20,
     this.drawMinute = 0,
+    this.drawTimeByDay = const {},
     this.prizeTiers = const [],
   });
 
@@ -85,16 +111,25 @@ class GameConfig {
     main: NumberPool.fromJson(j['main'] as Map<String, dynamic>),
     bonus: BonusPool.fromJson(j['bonus'] as Map<String, dynamic>),
     drawDays: List<String>.from(j['drawDays'] as List),
+    irregularDrawDays: j['irregularDrawDays'] == true,
     timezone: j['timezone'] as String,
     ruleSince: j['ruleSince'] == null
         ? null
         : DateTime.parse(j['ruleSince'] as String),
     drawHour: int.parse(((j['drawTime'] ?? '20:00') as String).split(':')[0]),
     drawMinute: int.parse(((j['drawTime'] ?? '20:00') as String).split(':')[1]),
+    drawTimeByDay: {
+      for (final e in ((j['drawTimeByDay'] ?? const {}) as Map).entries)
+        e.key as String: _minutesOf(e.value as String),
+    },
     prizeTiers: ((j['prizeTiers'] ?? const []) as List)
         .map((e) => PrizeTier.fromJson(e as List))
         .toList(),
   );
+
+  /// 그 요일의 추첨 시각 (0시부터의 분). 요일 코드는 'MON' … 'SUN'
+  int drawMinutesOn(String dayCode) =>
+      drawTimeByDay[dayCode] ?? drawHour * 60 + drawMinute;
 
   String displayName(String languageCode) =>
       name[languageCode] ?? name['en'] ?? id;
@@ -109,6 +144,11 @@ class GameConfig {
         ? mainCombos * combinations(bonus.max, bonus.count)
         : mainCombos;
   }
+}
+
+int _minutesOf(String hhmm) {
+  final p = hhmm.split(':');
+  return int.parse(p[0]) * 60 + int.parse(p[1]);
 }
 
 List<GameConfig> parseGames(Map<String, dynamic> json) =>

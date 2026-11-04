@@ -13,9 +13,9 @@ DOC = Path(__file__).resolve().parents[3] / "5_store_assets" / "스토어_등록
 FIELDS = [
     (r"앱 이름|App name|Nombre|Nom|Name|アプリ名|Tên ứng dụng", "앱 이름", 30, "chars"),
     (r"부제|Subtitle|Subtítulo|Sous-titre|Untertitel|サブタイトル|Phụ đề", "iOS 부제", 30, "chars"),
-    (r"짧은 설명|Short description|Descripción breve|Description courte|Kurzbeschreibung|簡単な説明|Mô tả ngắn", "Play 짧은 설명", 80, "chars"),
+    (r"짧은 설명|Short description|Descripción breve|Description courte|Kurzbeschreibung|簡単な説明|Mô tả ngắn|Descrição curta", "Play 짧은 설명", 80, "chars"),
     (r"프로모션 문구|Promotional text|Texto promocional|Texte promotionnel|Werbetext|プロモーションテキスト|Văn bản quảng cáo", "iOS 프로모션", 170, "chars"),
-    (r"키워드|Keywords|Palabras clave|Mots-clés|Schlüsselwörter|キーワード|Từ khóa", "iOS 키워드", 100, "bytes"),
+    (r"키워드|Keywords|Palabras clave|Mots-clés|Schlüsselwörter|キーワード|Từ khóa|Palavras-chave", "iOS 키워드", 100, "bytes"),
 ]
 
 

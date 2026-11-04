@@ -10,7 +10,8 @@
         "fr": "Loto 6/45 (Corée)",
         "de": "Lotto 6/45 (Korea)",
         "ja": "ロト6/45 (韓国)",
-        "vi": "Lotto 6/45 (Hàn Quốc)"
+        "vi": "Lotto 6/45 (Hàn Quốc)",
+        "pt": "Lotto 6/45 (Coreia do Sul)"
       },
       "country": "KR",
       "main": {
@@ -28,7 +29,8 @@
           "fr": "Bonus",
           "de": "Zusatzzahl",
           "ja": "ボーナス",
-          "vi": "Số phụ"
+          "vi": "Số phụ",
+          "pt": "Bônus"
         }
       },
       "drawDays": [
@@ -69,7 +71,8 @@
         "fr": "Powerball (États-Unis)",
         "de": "Powerball (USA)",
         "ja": "パワーボール (米国)",
-        "vi": "Powerball (Mỹ)"
+        "vi": "Powerball (Mỹ)",
+        "pt": "Powerball (EUA)"
       },
       "country": "US",
       "main": {
@@ -87,7 +90,8 @@
           "fr": "Powerball",
           "de": "Powerball",
           "ja": "パワーボール",
-          "vi": "Powerball"
+          "vi": "Powerball",
+          "pt": "Powerball"
         }
       },
       "drawDays": [
@@ -146,7 +150,8 @@
         "fr": "Mega Millions (États-Unis)",
         "de": "Mega Millions (USA)",
         "ja": "メガミリオンズ (米国)",
-        "vi": "Mega Millions (Mỹ)"
+        "vi": "Mega Millions (Mỹ)",
+        "pt": "Mega Millions (EUA)"
       },
       "country": "US",
       "main": {
@@ -164,7 +169,8 @@
           "fr": "Mega Ball",
           "de": "Mega Ball",
           "ja": "メガボール",
-          "vi": "Mega Ball"
+          "vi": "Mega Ball",
+          "pt": "Mega Ball"
         }
       },
       "drawDays": [
@@ -222,7 +228,8 @@
         "fr": "Lotto 6/49 (Canada)",
         "de": "Lotto 6/49 (Kanada)",
         "ja": "ロト6/49 (カナダ)",
-        "vi": "Lotto 6/49 (Canada)"
+        "vi": "Lotto 6/49 (Canada)",
+        "pt": "Lotto 6/49 (Canadá)"
       },
       "country": "CA",
       "main": {
@@ -240,7 +247,8 @@
           "fr": "Complémentaire",
           "de": "Zusatzzahl",
           "ja": "ボーナス",
-          "vi": "Số phụ"
+          "vi": "Số phụ",
+          "pt": "Bônus"
         }
       },
       "drawDays": [
@@ -290,7 +298,8 @@
         "fr": "EuroMillions",
         "de": "EuroMillions",
         "ja": "ユーロミリオンズ",
-        "vi": "EuroMillions"
+        "vi": "EuroMillions",
+        "pt": "EuroMilhões"
       },
       "country": "EU",
       "main": {
@@ -308,7 +317,8 @@
           "fr": "Étoiles",
           "de": "Sterne",
           "ja": "ラッキースター",
-          "vi": "Lucky Star"
+          "vi": "Lucky Star",
+          "pt": "Estrelas"
         }
       },
       "drawDays": [
@@ -382,7 +392,8 @@
         "fr": "Eurojackpot",
         "de": "Eurojackpot",
         "ja": "ユーロジャックポット",
-        "vi": "Eurojackpot"
+        "vi": "Eurojackpot",
+        "pt": "Eurojackpot"
       },
       "country": "EU",
       "main": {
@@ -400,7 +411,8 @@
           "fr": "Euronuméros",
           "de": "Eurozahlen",
           "ja": "ユーロナンバー",
-          "vi": "Số Euro"
+          "vi": "Số Euro",
+          "pt": "Euronúmeros"
         }
       },
       "drawDays": [
@@ -462,6 +474,88 @@
       ]
     },
     {
+      "id": "fr_loto",
+      "name": {
+        "ko": "로또 (프랑스)",
+        "en": "Loto (France)",
+        "es": "Loto (Francia)",
+        "fr": "Loto",
+        "de": "Loto (Frankreich)",
+        "ja": "ロト (フランス)",
+        "vi": "Loto (Pháp)",
+        "pt": "Loto (França)"
+      },
+      "country": "FR",
+      "main": {
+        "count": 5,
+        "max": 49
+      },
+      "bonus": {
+        "count": 1,
+        "max": 10,
+        "playerPicks": true,
+        "label": {
+          "ko": "행운번호",
+          "en": "Lucky Number",
+          "es": "Número de la suerte",
+          "fr": "Numéro Chance",
+          "de": "Glückszahl",
+          "ja": "ラッキーナンバー",
+          "vi": "Số may mắn",
+          "pt": "Número da Sorte"
+        }
+      },
+      "drawDays": [
+        "MON",
+        "WED",
+        "SAT"
+      ],
+      "timezone": "Europe/Paris",
+      "ruleSince": "2008-10-06",
+      "drawTime": "20:20",
+      "prizeTiers": [
+        [
+          5,
+          1
+        ],
+        [
+          5,
+          0
+        ],
+        [
+          4,
+          1
+        ],
+        [
+          4,
+          0
+        ],
+        [
+          3,
+          1
+        ],
+        [
+          3,
+          0
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          2,
+          0
+        ],
+        [
+          [
+            0,
+            1
+          ],
+          1
+        ]
+      ]
+    },
+    {
       "id": "jp_loto6",
       "name": {
         "ko": "로토6 (일본)",
@@ -470,7 +564,8 @@
         "fr": "Loto 6 (Japon)",
         "de": "Loto 6 (Japan)",
         "ja": "ロト6",
-        "vi": "Loto 6 (Nhật Bản)"
+        "vi": "Loto 6 (Nhật Bản)",
+        "pt": "Loto 6 (Japão)"
       },
       "country": "JP",
       "main": {
@@ -488,7 +583,8 @@
           "fr": "Bonus",
           "de": "Zusatzzahl",
           "ja": "ボーナス",
-          "vi": "Số phụ"
+          "vi": "Số phụ",
+          "pt": "Bônus"
         }
       },
       "drawDays": [
@@ -522,24 +618,25 @@
       ]
     },
     {
-      "id": "ie_lotto",
+      "id": "jp_loto7",
       "name": {
-        "ko": "아이리시 로또 (아일랜드)",
-        "en": "Irish Lotto",
-        "es": "Irish Lotto (Irlanda)",
-        "fr": "Irish Lotto (Irlande)",
-        "de": "Irish Lotto (Irland)",
-        "ja": "アイリッシュ・ロト",
-        "vi": "Irish Lotto (Ireland)"
+        "ko": "로또7 (일본)",
+        "en": "Loto 7 (Japan)",
+        "es": "Loto 7 (Japón)",
+        "fr": "Loto 7 (Japon)",
+        "de": "Loto 7 (Japan)",
+        "ja": "ロト7",
+        "vi": "Loto 7 (Nhật Bản)",
+        "pt": "Loto 7 (Japão)"
       },
-      "country": "IE",
+      "country": "JP",
       "main": {
-        "count": 6,
-        "max": 47
+        "count": 7,
+        "max": 37
       },
       "bonus": {
-        "count": 1,
-        "max": 47,
+        "count": 2,
+        "max": 37,
         "playerPicks": false,
         "label": {
           "ko": "보너스",
@@ -548,17 +645,81 @@
           "fr": "Bonus",
           "de": "Zusatzzahl",
           "ja": "ボーナス",
-          "vi": "Số phụ"
+          "vi": "Số phụ",
+          "pt": "Bônus"
         }
       },
       "drawDays": [
-        "MON",
-        "WED",
-        "SAT"
+        "FRI"
       ],
-      "timezone": "Europe/Dublin",
-      "ruleSince": "2015-09-05",
-      "drawTime": "19:45",
+      "timezone": "Asia/Tokyo",
+      "ruleSince": "2013-04-05",
+      "drawTime": "18:45",
+      "prizeTiers": [
+        [
+          7,
+          -1
+        ],
+        [
+          6,
+          1
+        ],
+        [
+          6,
+          0
+        ],
+        [
+          5,
+          -1
+        ],
+        [
+          4,
+          -1
+        ],
+        [
+          3,
+          [
+            1,
+            2
+          ]
+        ]
+      ]
+    },
+    {
+      "id": "br_megasena",
+      "name": {
+        "ko": "메가세나 (브라질)",
+        "en": "Mega-Sena (Brazil)",
+        "es": "Mega-Sena (Brasil)",
+        "fr": "Mega-Sena (Brésil)",
+        "de": "Mega-Sena (Brasilien)",
+        "ja": "メガセナ (ブラジル)",
+        "vi": "Mega-Sena (Brazil)",
+        "pt": "Mega-Sena"
+      },
+      "country": "BR",
+      "main": {
+        "count": 6,
+        "max": 60
+      },
+      "bonus": {
+        "count": 0,
+        "max": 60,
+        "playerPicks": false,
+        "label": {}
+      },
+      "drawDays": [
+        "TUE",
+        "THU",
+        "SUN"
+      ],
+      "irregularDrawDays": true,
+      "timezone": "America/Sao_Paulo",
+      "ruleSince": "1996-03-11",
+      "drawTime": "21:00",
+      "drawTimeByDay": {
+        "SUN": "11:00"
+      },
       "prizeTiers": [
         [
           6,
@@ -566,31 +727,11 @@
         ],
         [
           5,
-          1
-        ],
-        [
-          5,
-          0
+          -1
         ],
         [
           4,
-          1
-        ],
-        [
-          4,
-          0
-        ],
-        [
-          3,
-          1
-        ],
-        [
-          3,
-          0
-        ],
-        [
-          2,
-          1
+          -1
         ]
       ]
     },
@@ -603,7 +744,8 @@
         "fr": "Mega 6/45 (Viêt Nam)",
         "de": "Mega 6/45 (Vietnam)",
         "ja": "メガ6/45 (ベトナム)",
-        "vi": "Mega 6/45"
+        "vi": "Mega 6/45",
+        "pt": "Mega 6/45 (Vietnã)"
       },
       "country": "VN",
       "main": {

@@ -100,7 +100,8 @@ ManualDrawError? validateManualDraw(
   if (date == null ||
       date.isAfter(day) ||
       (game.ruleSince != null && date.isBefore(game.ruleSince!)) ||
-      !game.drawDays.contains(_weekdays[date.weekday - 1])) {
+      (!game.irregularDrawDays &&
+          !game.drawDays.contains(_weekdays[date.weekday - 1]))) {
     return ManualDrawError.date;
   }
 

@@ -741,15 +741,24 @@ class _LottoFilterPageState extends State<LottoFilterPage>
   String _drawScheduleText(GameConfig g) {
     const codes = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
     final fmt = DateFormat.E(Localizations.localeOf(context).toString());
-    // 2024-01-01 은 월요일
+    String hhmm(int minutes) =>
+        '${(minutes ~/ 60).toString().padLeft(2, '0')}:${(minutes % 60).toString().padLeft(2, '0')}';
+    // 시각이 같은 요일끼리 묶습니다. 예) 메가세나 "화, 목 21:00 · 일 11:00"
+    final byTime = <int, List<String>>{};
+    for (final c in g.drawDays) {
+      if (!codes.contains(c)) continue;
+      // 2024-01-01 은 월요일
+      byTime
+          .putIfAbsent(g.drawMinutesOn(c), () => [])
+          .add(fmt.format(DateTime(2024, 1, 1 + codes.indexOf(c))));
+    }
+    final groups = byTime.entries.toList();
+    final last = groups.removeLast();
     final days = [
-      for (final c in g.drawDays)
-        if (codes.contains(c))
-          fmt.format(DateTime(2024, 1, 1 + codes.indexOf(c))),
-    ].join(', ');
-    final hh = g.drawHour.toString().padLeft(2, '0');
-    final mm = g.drawMinute.toString().padLeft(2, '0');
-    return t.alarmDrawAt(days, '$hh:$mm');
+      for (final e in groups) '${e.value.join(', ')} ${hhmm(e.key)}',
+      last.value.join(', '),
+    ].join(' · ');
+    return t.alarmDrawAt(days, hhmm(last.key));
   }
 
   Future<void> _showAlarmDialog() async {
@@ -1958,7 +1967,8 @@ class _LottoFilterPageState extends State<LottoFilterPage>
       'US' => 'powerball',
       'CA' => 'ca649',
       'JP' => 'jp_loto6',
-      'IE' => 'ie_lotto',
+      'FR' => 'fr_loto',
+      'BR' => 'br_megasena',
       'VN' => 'vn_mega645',
       _ when _euroMillionsCountries.contains(country) => 'euromillions',
       _ when _eurojackpotCountries.contains(country) => 'eurojackpot',
@@ -1966,6 +1976,7 @@ class _LottoFilterPageState extends State<LottoFilterPage>
         'ko' => 'kr645',
         'ja' => 'jp_loto6',
         'vi' => 'vn_mega645',
+        'pt' => 'br_megasena',
         _ => 'powerball',
       },
     };

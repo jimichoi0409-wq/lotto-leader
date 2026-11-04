@@ -14,7 +14,7 @@ void main() {
   });
 
   test('문의하기에 실제 운영자·이메일이 들어 있다 (자리표시자 없음)', () {
-    for (final lang in ['ko', 'en', 'es', 'fr', 'de', 'ja', 'vi']) {
+    for (final lang in ['ko', 'en', 'es', 'fr', 'de', 'ja', 'vi', 'pt']) {
       final arb = File('lib/l10n/app_$lang.arb').readAsStringSync();
       expect(arb, contains('jnhteamsoft@gmail.com'), reason: lang);
       expect(arb, contains('한지성'), reason: lang);

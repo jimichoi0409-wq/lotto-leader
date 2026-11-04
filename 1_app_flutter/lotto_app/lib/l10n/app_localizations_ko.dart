@@ -84,7 +84,7 @@ class AppLocalizationsKo extends AppLocalizations {
 
   @override
   String get disclaimerText =>
-      '본 앱은 과거 로또 당첨번호를 기반으로 통계 분석 및 번호 조합 참고 기능을 제공하는 도구입니다.\n\n모든 복권은 번호 조합마다 1등 당첨 확률이 동일합니다(예: 로또 6/45는 1/8,145,060, 파워볼은 1/292,201,338). 본 앱의 필터와 통계는 당첨 확률을 높이지 않습니다. 번호 선택의 재미와 참고용으로만 이용해주세요.\n\n본 앱은 각 복권 운영사(동행복권, Powerball, Mega Millions, Lotto 6/49, EuroMillions, Eurojackpot, 로토6, Irish Lotto, Vietlott 등)와 관련이 없는 독립 앱입니다.\n\n본 앱은 당첨을 보장하지 않으며, 복권 구매 및 이용에 대한 모든 책임은 사용자 본인에게 있습니다.\n\n본 앱은 복권 구매, 베팅, 현금성 보상, 도박 서비스를 제공하지 않습니다.';
+      '본 앱은 과거 로또 당첨번호를 기반으로 통계 분석 및 번호 조합 참고 기능을 제공하는 도구입니다.\n\n모든 복권은 번호 조합마다 1등 당첨 확률이 동일합니다(예: 로또 6/45는 1/8,145,060, 파워볼은 1/292,201,338). 본 앱의 필터와 통계는 당첨 확률을 높이지 않습니다. 번호 선택의 재미와 참고용으로만 이용해주세요.\n\n본 앱은 각 복권 운영사(동행복권, Powerball, Mega Millions, Lotto 6/49, EuroMillions, Eurojackpot, FDJ Loto, Caixa Mega-Sena, 로토6, 로또7, Vietlott 등)와 관련이 없는 독립 앱입니다.\n\n본 앱은 당첨을 보장하지 않으며, 복권 구매 및 이용에 대한 모든 책임은 사용자 본인에게 있습니다.\n\n본 앱은 복권 구매, 베팅, 현금성 보상, 도박 서비스를 제공하지 않습니다.\n\n메가세나 당첨번호 출처: ValorFinal 데이터셋(valorfinal.com.br/dados/loteria-megasena), CC BY 4.0 라이선스(creativecommons.org/licenses/by/4.0), 앱 형식으로 변환.';
 
   @override
   String get contactText =>

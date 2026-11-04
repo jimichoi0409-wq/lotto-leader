@@ -84,7 +84,7 @@ class AppLocalizationsJa extends AppLocalizations {
 
   @override
   String get disclaimerText =>
-      'このアプリは、過去の当選番号の統計を提供し、番号の組み合わせ作りを手助けするツールです。\n\nどの宝くじでも、すべての組み合わせの1等当選確率はまったく同じです(例:韓国ロト6/45は8,145,060分の1、パワーボールは292,201,338分の1)。このアプリのフィルターや統計で当選確率が上がることはありません。楽しみと参考のためにのみご利用ください。\n\nこのアプリは独立したアプリであり、宝くじの運営会社(Dong-hang Lottery、Powerball、Mega Millions、Lotto 6/49、EuroMillions、Eurojackpot、ロト6、Irish Lotto、Vietlott など)とは一切関係ありません。\n\nアプリは当選を保証しません。宝くじの購入と参加はご自身の責任で行ってください。\n\nアプリはくじの販売を行わず、賭け・現金報酬・ギャンブルサービスも提供しません。';
+      'このアプリは、過去の当選番号の統計を提供し、番号の組み合わせ作りを手助けするツールです。\n\nどの宝くじでも、すべての組み合わせの1等当選確率はまったく同じです(例:韓国ロト6/45は8,145,060分の1、パワーボールは292,201,338分の1)。このアプリのフィルターや統計で当選確率が上がることはありません。楽しみと参考のためにのみご利用ください。\n\nこのアプリは独立したアプリであり、宝くじの運営会社(Dong-hang Lottery、Powerball、Mega Millions、Lotto 6/49、EuroMillions、Eurojackpot、FDJ Loto、Caixa Mega-Sena、ロト6、ロト7、Vietlott など)とは一切関係ありません。\n\nアプリは当選を保証しません。宝くじの購入と参加はご自身の責任で行ってください。\n\nアプリはくじの販売を行わず、賭け・現金報酬・ギャンブルサービスも提供しません。\n\nメガセナの当選番号の出典:ValorFinal のデータセット(valorfinal.com.br/dados/loteria-megasena)、CC BY 4.0 ライセンス(creativecommons.org/licenses/by/4.0)、アプリの形式に変換。';
 
   @override
   String get contactText =>

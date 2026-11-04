@@ -1,4 +1,4 @@
-// 일본 로토6 · 아이리시 로또 · 베트남 메가 6/45 규칙 검증
+// 일본 로토6·로또7 · 프랑스 로또 · 브라질 메가세나 · 베트남 메가 6/45 규칙 검증
 
 import 'dart:convert';
 import 'dart:io';
@@ -22,17 +22,20 @@ void main() {
       g.id: g,
   };
   final jp = games['jp_loto6']!;
-  final ie = games['ie_lotto']!;
+  final jp7 = games['jp_loto7']!;
+  final fr = games['fr_loto']!;
+  final br = games['br_megasena']!;
   final vn = games['vn_mega645']!;
 
-  test('9개 복권, 모든 이름이 7개 언어', () {
-    expect(games.length, 9);
+  test('11개 복권, 모든 이름이 8개 언어', () {
+    expect(games.length, 11);
+    expect(games.containsKey('ie_lotto'), isFalse);
     for (final g in games.values) {
-      for (final lang in ['ko', 'en', 'es', 'fr', 'de', 'ja', 'vi']) {
+      for (final lang in ['ko', 'en', 'es', 'fr', 'de', 'ja', 'vi', 'pt']) {
         expect(g.name[lang], isNotNull, reason: '${g.id} $lang');
       }
       if (g.bonus.count > 0) {
-        for (final lang in ['ja', 'vi']) {
+        for (final lang in ['ja', 'vi', 'pt']) {
           expect(g.bonus.label[lang], isNotNull, reason: '${g.id} $lang');
         }
       }
@@ -41,7 +44,9 @@ void main() {
 
   test('1등 확률', () {
     expect(jp.jackpotOddsDenominator, 6096454);
-    expect(ie.jackpotOddsDenominator, 10737573);
+    expect(jp7.jackpotOddsDenominator, 10295472);
+    expect(fr.jackpotOddsDenominator, 19068840);
+    expect(br.jackpotOddsDenominator, 50063860);
     expect(vn.jackpotOddsDenominator, 8145060);
   });
 
@@ -50,10 +55,17 @@ void main() {
       const WeeklySlot(1, 15, 45),
       const WeeklySlot(4, 15, 45),
     ]);
-    expect(alarmSlots(ie), [
-      const WeeklySlot(1, 16, 45),
-      const WeeklySlot(3, 16, 45),
-      const WeeklySlot(6, 16, 45),
+    expect(alarmSlots(jp7), [const WeeklySlot(5, 15, 45)]);
+    expect(alarmSlots(fr), [
+      const WeeklySlot(1, 17, 20),
+      const WeeklySlot(3, 17, 20),
+      const WeeklySlot(6, 17, 20),
+    ]);
+    // 메가세나: 화·목 21:00, 일요일만 11:00
+    expect(alarmSlots(br), [
+      const WeeklySlot(2, 18, 0),
+      const WeeklySlot(4, 18, 0),
+      const WeeklySlot(7, 8, 0),
     ]);
     expect(alarmSlots(vn).map((s) => s.weekday), [3, 5, 7]);
   });
@@ -69,15 +81,76 @@ void main() {
     expect(rank([1, 2, 40, 41, 42, 43]), 0);
   });
 
-  test('아이리시 로또 등수 (4+보너스, 3+보너스, 2+보너스 포함 8단계)', () {
-    const d = DrawRecord(1, '2026-10-21', [1, 2, 3, 4, 5, 6], [7]);
-    int rank(List<int> n) => checkTicket(ie, Ticket(n, const []), d).rank;
-    expect(rank([1, 2, 3, 4, 7, 47]), 4);
-    expect(rank([1, 2, 3, 4, 46, 47]), 5);
-    expect(rank([1, 2, 3, 7, 46, 47]), 6);
-    expect(rank([1, 2, 3, 45, 46, 47]), 7);
-    expect(rank([1, 2, 7, 45, 46, 47]), 8);
-    expect(rank([1, 2, 44, 45, 46, 47]), 0);
+  test('로또7 등수 (6등 = 3개 + 보너스 1~2개)', () {
+    const d = DrawRecord(1, '2026-10-30', [1, 2, 3, 4, 5, 6, 7], [8, 9]);
+    int rank(List<int> n) => checkTicket(jp7, Ticket(n, const []), d).rank;
+    expect(rank([1, 2, 3, 4, 5, 6, 7]), 1);
+    expect(rank([1, 2, 3, 4, 5, 6, 8]), 2);
+    expect(rank([1, 2, 3, 4, 5, 6, 37]), 3);
+    expect(rank([1, 2, 3, 4, 5, 36, 37]), 4);
+    expect(rank([1, 2, 3, 4, 35, 36, 37]), 5);
+    expect(rank([1, 2, 3, 8, 35, 36, 37]), 6);
+    expect(rank([1, 2, 3, 8, 9, 36, 37]), 6);
+    expect(rank([1, 2, 3, 34, 35, 36, 37]), 0);
+  });
+
+  test('프랑스 로또 등수 (9등 = 0~1개 + 행운번호)', () {
+    const d = DrawRecord(1, '2026-11-02', [1, 2, 3, 4, 5], [9]);
+    int rank(List<int> n, int chance) =>
+        checkTicket(fr, Ticket(n, [chance]), d).rank;
+    expect(rank([1, 2, 3, 4, 5], 9), 1);
+    expect(rank([1, 2, 3, 4, 5], 1), 2);
+    expect(rank([1, 2, 40, 41, 42], 9), 7);
+    expect(rank([1, 2, 40, 41, 42], 1), 8);
+    expect(rank([1, 40, 41, 42, 43], 9), 9);
+    expect(rank([40, 41, 42, 43, 44], 9), 9);
+    expect(rank([1, 40, 41, 42, 43], 1), 0);
+    expect(fr.hasPlayerBonus, isTrue);
+  });
+
+  test('메가세나: 보너스 없음, 3단계, 특별 추첨일도 직접 입력 가능', () {
+    const d = DrawRecord(1, '2026-11-01', [1, 2, 3, 4, 5, 6], []);
+    int rank(List<int> n) => checkTicket(br, Ticket(n, const []), d).rank;
+    expect(rank([1, 2, 3, 4, 5, 6]), 1);
+    expect(rank([1, 2, 3, 4, 5, 60]), 2);
+    expect(rank([1, 2, 3, 4, 59, 60]), 3);
+    expect(rank([1, 2, 3, 58, 59, 60]), 0);
+
+    // 2026-11-04 는 수요일(정규 추첨일 아님)이지만 특별 추첨이 있으므로 허용
+    final ok = validateManualDraw(
+      br,
+      const DrawRecord(1, '2026-11-04', [1, 2, 3, 4, 5, 6], []),
+      const [],
+      DateTime(2026, 11, 5),
+    );
+    expect(ok, isNull);
+    // 정규 요일만 있는 복권은 그대로 거부
+    final bad = validateManualDraw(
+      jp,
+      const DrawRecord(1, '2026-11-04', [1, 2, 3, 4, 5, 6], [7]),
+      const [],
+      DateTime(2026, 11, 5),
+    );
+    expect(bad, ManualDrawError.date);
+  });
+
+  test('메가세나 전체 조합(5,006만) 계산 시간', () {
+    final sw = Stopwatch()..start();
+    final r = runEngine(
+      EngineRequest(
+        game: br,
+        filters: const FilterOptions(),
+        pastWinners: const [],
+        mode: EngineMode.extract,
+        extractCount: 5,
+        seed: 1,
+      ),
+    );
+    sw.stop();
+    // ignore: avoid_print
+    print('메가세나 전체 조합 ${r.total} / ${sw.elapsedMilliseconds}ms');
+    expect(r.total, 50063860);
+    expect(r.tickets.length, 5);
   });
 
   test('베트남 메가 6/45: 보너스 번호 없음', () {

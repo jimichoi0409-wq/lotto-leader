@@ -42,9 +42,10 @@ DrawRecord? firstDrawAfter(
   DateTime createdAt,
 ) {
   final day = DateTime(createdAt.year, createdAt.month, createdAt.day);
+  const codes = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
   final beforeDraw =
       createdAt.hour * 60 + createdAt.minute <
-      game.drawHour * 60 + game.drawMinute;
+      game.drawMinutesOn(codes[createdAt.weekday - 1]);
   DrawRecord? best;
   DateTime? bestDate;
   for (final d in draws) {
@@ -68,9 +69,7 @@ TicketResult checkTicket(GameConfig game, Ticket ticket, DrawRecord draw) {
       : ticket.main.toSet().intersection(draw.bonus.toSet());
   var rank = 0;
   for (var i = 0; i < game.prizeTiers.length; i++) {
-    final tier = game.prizeTiers[i];
-    if (tier.main == mainHits.length &&
-        (tier.bonus == -1 || tier.bonus == bonusHits.length)) {
+    if (game.prizeTiers[i].matches(mainHits.length, bonusHits.length)) {
       rank = i + 1;
       break;
     }

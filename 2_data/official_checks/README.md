@@ -7,6 +7,7 @@
 |---|---|---|---|
 | `jp_loto6_mizuho.csv` | 미즈호은행 当せん番号案内 (mizuhobank.co.jp/takarakuji/check/loto/) | 2026-10-25 | 1~20, 981~1000, 2142~2148 (47회) |
 | `ca649_wclc.csv` | WCLC 지난 당첨번호 (wclc.com/winning-numbers/lotto-649-extra.htm, CLASSIC DRAW) | 2026-10-25 | 4360~4462 (2025-11-01 ~ 2026-10-24, 103회) |
+| `br_megasena_caixa.csv` | Caixa 공식 결과 서비스 (servicebus2.caixa.gov.br/portaldeloterias/api/megasena/<회차>) | 2026-11-04 | 1~10, 1500~1505, 3071~3080 (26회) |
 
 미즈호은행 사이트는 브라우저가 아닌 자동 접속(스크립트·서버)을 차단하므로 자동 수집에는 쓰지 않습니다.
 새로 확인한 회차는 같은 형식으로 줄을 추가하면 됩니다.

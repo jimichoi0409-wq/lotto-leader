@@ -633,3 +633,5 @@ python collect_draws.py --import eurojackpot 받은파일.csv   # 열: draw_date
 - 앱 아이콘 가운데 그림(왕관·7번 공·엄지) 20% 확대, 파란 배경 그대로. `tool/icon_source.png` 를 1024px 로 다시 만들고 `tool/make_icons.ps1` 로 안드로이드·iOS·시작 화면·스토어 아이콘 재생성. 이전 원본: `4_backup/icon_before_scale_20261109`.
 - 테스터: 등록 13명, 참여 12명 (11-07 달성, 14일 조건은 11-21 무렵 충족 예상).
 - `pubspec.yaml` 1.0.0+6, 테스트 116개 통과, 릴리스 AAB 빌드·업로드 키 서명 확인 (versionCode 6, AAB 안 아이콘 확인).
+- 2026-11-09 Play Console 검토 제출 (변경 23개): Alpha 버전 6 (100%), 새 스토어 아이콘 (8개 언어), ko·en·es·fr·de·ja·vi 짧은/전체 설명을 11개 복권·8개 언어 문구로 수정 (`5_store_assets/스토어_등록_문구.md` 기준, pt-BR 은 이미 최신).
+- 테스트 기간 영향 확인: Google 도움말(answer/14151465) 기준 14일은 테스터별 연속 참여 기간이며, 새 버전·스토어 정보 변경으로 초기화되지 않음 (테스터가 참여 취소 후 재참여할 때만 그 사람 기준 재시작). 검토 중 추가 제출은 검토를 다시 시작시키므로 묶어서 제출.

@@ -24,9 +24,9 @@
     },
     "ca649": {
       "file": "ca649.csv",
-      "count": 4466,
-      "latestDate": "2026-11-07",
-      "sha256": "c7f8507e741a2133fa114ad7c1a0bd998c3e9076493c8702cffebdb4db8a0a91",
+      "count": 4467,
+      "latestDate": "2026-11-11",
+      "sha256": "49811473e7b2f405486ee1e09ebe2248bdb718ff471635b710e595ef56ce9b3f",
       "revision": 0
     },
     "euromillions": {
@@ -73,9 +73,9 @@
     },
     "vn_mega645": {
       "file": "vn_mega645.csv",
-      "count": 1586,
-      "latestDate": "2026-11-08",
-      "sha256": "42040531852af0c020f27f598969bd118f6f33195e2296ad2e25576a755eedc1",
+      "count": 1587,
+      "latestDate": "2026-11-11",
+      "sha256": "f83d3d084fbf682b6f59db47cc5075078abe068180bce758ac446264edd684cf",
       "revision": 0
     }
   }

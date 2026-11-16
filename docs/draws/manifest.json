@@ -52,9 +52,9 @@
     },
     "jp_loto6": {
       "file": "jp_loto6.csv",
-      "count": 2154,
-      "latestDate": "2026-11-12",
-      "sha256": "54e4f5cb3946351baeb6aa5c84eaffaf54999aca9b803b673f754c25ad26546f",
+      "count": 2155,
+      "latestDate": "2026-11-16",
+      "sha256": "b49e232697f0f318be67a7239e628bc59f0a908ebb37aef0f2ad30361f195afc",
       "revision": 0
     },
     "jp_loto7": {
@@ -66,16 +66,16 @@
     },
     "br_megasena": {
       "file": "br_megasena.csv",
-      "count": 3085,
-      "latestDate": "2026-11-12",
-      "sha256": "a29c86fa35f881fe600e6b65981e64eaa43b71d4bed99145442e4c59ba5ca2a1",
+      "count": 3086,
+      "latestDate": "2026-11-15",
+      "sha256": "543fa8f89c54192d0f600e87ce1f3d222387b985d67ab2fe1a6b4c706bfb6449",
       "revision": 0
     },
     "vn_mega645": {
       "file": "vn_mega645.csv",
-      "count": 1587,
-      "latestDate": "2026-11-11",
-      "sha256": "f83d3d084fbf682b6f59db47cc5075078abe068180bce758ac446264edd684cf",
+      "count": 1588,
+      "latestDate": "2026-11-13",
+      "sha256": "e8fe6263f8be9f1d2c85fd9dd9dd2b3559e47e53d600f0dcee122583c7a72a7b",
       "revision": 0
     }
   }

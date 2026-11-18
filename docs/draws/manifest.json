@@ -38,9 +38,9 @@
     },
     "eurojackpot": {
       "file": "eurojackpot.csv",
-      "count": 126,
-      "latestDate": "2026-11-13",
-      "sha256": "974bb954a3fb1d0be6c6cc9f38cb7f5528582586ad820eb6916aea85b16d6ecc",
+      "count": 127,
+      "latestDate": "2026-11-17",
+      "sha256": "ab25e3b713a3202f855110b8798fc659f77456f51a505e3e51d8ac740e97c340",
       "revision": 0
     },
     "fr_loto": {

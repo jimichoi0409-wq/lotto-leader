@@ -10,9 +10,9 @@
     },
     "powerball": {
       "file": "powerball.csv",
-      "count": 1434,
-      "latestDate": "2026-11-16",
-      "sha256": "9bbd10709f584ac4a82c686361bbaa278d024a5c11369b1cdb528791590386bc",
+      "count": 1435,
+      "latestDate": "2026-11-18",
+      "sha256": "1a5334783bd2755756685bd82a34529be2b4b8055c03be3703103d19aa612900",
       "revision": 0
     },
     "megamillions": {
@@ -52,9 +52,9 @@
     },
     "jp_loto6": {
       "file": "jp_loto6.csv",
-      "count": 2155,
-      "latestDate": "2026-11-16",
-      "sha256": "b49e232697f0f318be67a7239e628bc59f0a908ebb37aef0f2ad30361f195afc",
+      "count": 2156,
+      "latestDate": "2026-11-19",
+      "sha256": "4641da50dc9f287a34da09cccc39733c6ccc00a37fcedcaffb6a5a6b2ca98db6",
       "revision": 0
     },
     "jp_loto7": {

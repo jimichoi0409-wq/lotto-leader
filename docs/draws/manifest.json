@@ -24,9 +24,9 @@
     },
     "ca649": {
       "file": "ca649.csv",
-      "count": 4468,
-      "latestDate": "2026-11-14",
-      "sha256": "199120a4d86ae5af2d722245c571808c04a03c4fd13e80a692233039c25c36c7",
+      "count": 4469,
+      "latestDate": "2026-11-18",
+      "sha256": "8e628e973fd23c0e03f76f88eafe0a1a43a0122cd7a1ac554643514bca228609",
       "revision": 0
     },
     "euromillions": {
@@ -45,9 +45,9 @@
     },
     "fr_loto": {
       "file": "fr_loto.csv",
-      "count": 2835,
-      "latestDate": "2026-11-16",
-      "sha256": "14ee655fea50a8abd95784fe3f8d4dce41a9a5491cefec64e15eb2b16c12ca10",
+      "count": 2836,
+      "latestDate": "2026-11-18",
+      "sha256": "662200022fa0b34fe4f2233a67a6cf4998e382ef8bb66cd7994f0f0720c0c4b0",
       "revision": 0
     },
     "jp_loto6": {
@@ -73,9 +73,9 @@
     },
     "vn_mega645": {
       "file": "vn_mega645.csv",
-      "count": 1589,
-      "latestDate": "2026-11-15",
-      "sha256": "51ed5116ffc7b0e407fdfdb5956291716d7feaa2223210db500d1f494d479d50",
+      "count": 1590,
+      "latestDate": "2026-11-18",
+      "sha256": "fd36033d16f500557dac6bcd31b251f700a61f66a5cfdf740e737755b668de8f",
       "revision": 0
     }
   }

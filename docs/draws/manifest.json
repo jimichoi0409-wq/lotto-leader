@@ -38,9 +38,9 @@
     },
     "eurojackpot": {
       "file": "eurojackpot.csv",
-      "count": 127,
-      "latestDate": "2026-11-17",
-      "sha256": "ab25e3b713a3202f855110b8798fc659f77456f51a505e3e51d8ac740e97c340",
+      "count": 128,
+      "latestDate": "2026-11-20",
+      "sha256": "c7059c5d32e79f7fd0c0317d692e7cd55d53d6dc9be4063fe5194098efdb85f3",
       "revision": 0
     },
     "fr_loto": {
@@ -73,9 +73,9 @@
     },
     "vn_mega645": {
       "file": "vn_mega645.csv",
-      "count": 1590,
-      "latestDate": "2026-11-18",
-      "sha256": "fd36033d16f500557dac6bcd31b251f700a61f66a5cfdf740e737755b668de8f",
+      "count": 1591,
+      "latestDate": "2026-11-20",
+      "sha256": "09f6d86fd1bd3ffda4970d7c1b0e795b64f6b92890d854631c9bb377b2ce557a",
       "revision": 0
     }
   }

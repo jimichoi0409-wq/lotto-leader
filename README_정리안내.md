@@ -640,3 +640,4 @@ python collect_draws.py --import eurojackpot 받은파일.csv   # 열: draw_date
 
 - 대시보드 3개 조건 충족(비공개 테스트 게시, 테스터 12명 참여, 14일 이상) 확인 후 신청서 제출 (오후 10:37). 답변은 `5_store_assets/프로덕션_신청_답변_초안.md` 를 300자 제한에 맞게 줄여 입력. 모집 난이도 "보통", 첫해 예상 설치 "0~1만".
 - 검토 결과는 jnhteamsoft 메일로 통지, 보통 7일 이내. 승인 후: 프로덕션 출시 → AdMob 스토어 연결 → app-ads.txt.
+- 2026-11-23 프로덕션 액세스 권한 부여됨 (Google Play Support 메일, 대시보드 확인). 공개 테스트도 사용 가능. 다음: 프로덕션 출시(국가 선택·버전 6 승격) → AdMob 스토어 연결 → app-ads.txt.

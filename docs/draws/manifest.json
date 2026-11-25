@@ -17,9 +17,9 @@
     },
     "megamillions": {
       "file": "megamillions.csv",
-      "count": 170,
-      "latestDate": "2026-11-20",
-      "sha256": "eb70a827dfe2a55b8bcef9f24d03237aeb86d90ad654f46eefae5b010d9fa17d",
+      "count": 171,
+      "latestDate": "2026-11-24",
+      "sha256": "a5edf5ab063f288fc1c006fb9db244c722924a8ebd6881b3b67a7b9f7f7507fd",
       "revision": 0
     },
     "ca649": {
@@ -31,16 +31,16 @@
     },
     "euromillions": {
       "file": "euromillions.csv",
-      "count": 1060,
-      "latestDate": "2026-11-20",
-      "sha256": "7a7b92167053c181a48adbb7f2392e34d8d3dcaaa88d08ca81a43bdf7ccf5372",
+      "count": 1061,
+      "latestDate": "2026-11-24",
+      "sha256": "86e41124217fabac5a850d9dbac906e39476543fe52f7c1c8a68155e4a5e2aa5",
       "revision": 0
     },
     "eurojackpot": {
       "file": "eurojackpot.csv",
-      "count": 128,
-      "latestDate": "2026-11-20",
-      "sha256": "c7059c5d32e79f7fd0c0317d692e7cd55d53d6dc9be4063fe5194098efdb85f3",
+      "count": 129,
+      "latestDate": "2026-11-24",
+      "sha256": "7bc7226ae7b83fbce0d9078f9451676ec2e8df29dc2d633bc650f375e0f22d0b",
       "revision": 0
     },
     "fr_loto": {
@@ -66,9 +66,9 @@
     },
     "br_megasena": {
       "file": "br_megasena.csv",
-      "count": 3089,
-      "latestDate": "2026-11-22",
-      "sha256": "73388bee9c7f72810a9f0ac39b198e3aa430ef3dc792e4c3b1dafadd562a5081",
+      "count": 3090,
+      "latestDate": "2026-11-24",
+      "sha256": "3ed42c081571f92bc2dd875d8522a8209a73381e207e5c0b1a50467132873998",
       "revision": 0
     },
     "vn_mega645": {
